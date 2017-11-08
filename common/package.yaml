@@ -1,0 +1,24 @@
+name:                common
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/DebugSteven/coleg-scraper/common
+license:             BSD3
+author:              J Haigh
+maintainer:          DebugSteven@gmail.com
+copyright:           2017 J Haigh
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - classy-prelude
+  - persistent
+  - persistent-template
+
+library:
+  source-dirs:        src
+  default-extensions:
+    - NoImplicitPrelude
+    - OverloadedStrings
