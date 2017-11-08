@@ -1,0 +1,38 @@
+-- This file has been generated from package.yaml by hpack version 0.17.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           scraper
+version:        0.1.0.0
+category:       Web
+homepage:       https://github.com/DebugSteven/coleg-scraper/scraper
+author:         J Haigh
+maintainer:     jslhaigh@gmail.com
+copyright:      2017 J Haigh
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    README.md
+
+library
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude OverloadedStrings
+  build-depends:
+      base >= 4.7 && < 5
+    , classy-prelude
+  exposed-modules:
+      Scraper
+  default-language: Haskell2010
+
+executable scraper
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  build-depends:
+      base >= 4.7 && < 5
+    , classy-prelude
+  default-language: Haskell2010
