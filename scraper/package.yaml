@@ -16,6 +16,7 @@ dependencies:
   - classy-prelude
   - http-conduit
   - conduit
+  - bytestring
 
 library:
   source-dirs:        src

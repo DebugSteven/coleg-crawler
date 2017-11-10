@@ -1,9 +1,12 @@
-module Scraper where
+module Scraper 
+  ( runScrape ) 
+    where
 
 import ClassyPrelude
 import Control.Monad.IO.Class (liftIO)
 import qualified Data.Conduit.List as CL
 import Network.HTTP.Simple
+import qualified Data.ByteString.Lazy.Char8 as L8
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 
 runScrape :: IO ()
@@ -12,10 +15,14 @@ runScrape = do
   case userOption of
     "1" -> putStrLn "Do the default flow"
     "2" -> putStrLn "Do the everything in database flow"
-    _   -> putStrLn "Oh god what happened"
+    _   -> putStrLn "Oh god what happened" --do the default flow anyway...?
 
-  putStrLn "Do a scrape job!"
+  scrape
   putStrLn "Save the results."
+
+scrape :: IO ()
+scrape = 
+  httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" >>= L8.putStrLn . getResponseBody
 
 recentBills :: IO String
 recentBills = do

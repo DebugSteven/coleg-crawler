@@ -1,5 +1,7 @@
 module Main where
 
+import Scraper
+
 main :: IO ()
 main = do
-  putStrLn "hello world"
+  runScrape
