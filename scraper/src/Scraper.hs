@@ -8,7 +8,8 @@ import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 
 runScrape :: IO ()
 runScrape = do
-  case liftM recentBills of
+  userOption <- recentBills
+  case userOption of
     "1" -> putStrLn "Do the default flow"
     "2" -> putStrLn "Do the everything in database flow"
     _   -> putStrLn "Oh god what happened"
