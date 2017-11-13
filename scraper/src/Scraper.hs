@@ -25,6 +25,12 @@ scrape = do
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   L8.writeFile "test/example/bill_page_1.html" $ getResponseBody website
 
+nextPage :: IO ()
+nextpage = undefined
+
+lastPage :: IO ()
+lastPage = undefined
+
 recentBills :: IO String
 recentBills = do
   hSetBuffering stdout NoBuffering
