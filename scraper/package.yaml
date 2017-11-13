@@ -16,6 +16,7 @@ dependencies:
   - classy-prelude
   - http-conduit
   - conduit
+  - bytestring
 
 library:
   source-dirs:        src
@@ -27,3 +28,4 @@ executables:
   scraper:
     source-dirs:      app
     main:             Main.hs
+    dependencies:     scraper
