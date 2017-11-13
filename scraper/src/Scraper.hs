@@ -17,12 +17,12 @@ runScrape = do
     "2" -> putStrLn "Do the everything in database flow"
     _   -> putStrLn "Oh god what happened" --do the default flow anyway...?
 
-  scrape
   putStrLn "Save the results."
 
 scrape :: IO ()
-scrape = 
-  httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" >>= L8.putStrLn . getResponseBody
+scrape = do 
+  website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
+  L8.writeFile "test.html" $ getResponseBody website
 
 recentBills :: IO String
 recentBills = do
