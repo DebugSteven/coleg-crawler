@@ -8,6 +8,7 @@ import qualified Data.ByteString.Lazy.Char8 as L8
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
+import Data.Maybe
 
 runScrape :: IO ()
 runScrape = do
@@ -17,9 +18,6 @@ runScrape = do
     "2" -> putStrLn "Do the everything in database flow"
     _   -> putStrLn "Oh god what happened" --do the default flow anyway...?
 
-  scrape
-  nextPage
-  lastPage
   putStrLn "Save the results."
 
 scrape :: IO ()
@@ -27,10 +25,20 @@ scrape = do
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   L8.writeFile "test/example/bill_page_1.html" $ getResponseBody website
 
-nextPage :: IO ()
+-- I'm very sorry. Forgive me for my sins.
+fixNextPage = fmap mconcat . fmap mconcat $ fmap fromMaybe' nextPage
+fixLastPage = fmap mconcat . fmap mconcat $ fmap fromMaybe' lastPage
+
+-- This is far from ideal. please change it later 
+fromMaybe' mval = 
+  case mval of 
+    Nothing  -> undefined 
+    Just val -> val
+
+nextPage :: IO (Maybe [[ByteString]]) 
 nextPage = do 
   website <- readFile "test/example/bill_page_1.html"
-  print $ S.scrapeStringLike website next
+  return $ S.scrapeStringLike website next
 
     where 
       next :: S.Scraper ByteString [[ByteString]]
@@ -41,10 +49,10 @@ nextPage = do
         href <- S.attr "href" S.anySelector
         return href
 
-lastPage :: IO ()
+lastPage :: IO (Maybe [[ByteString]])
 lastPage = do 
   website <- readFile "test/example/bill_page_1.html"
-  print $ S.scrapeStringLike website next
+  return $ S.scrapeStringLike website next
 
     where 
       next :: S.Scraper ByteString [[ByteString]]
