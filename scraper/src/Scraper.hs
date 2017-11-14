@@ -19,6 +19,7 @@ runScrape = do
 
   scrape
   nextPage
+  lastPage
   putStrLn "Save the results."
 
 scrape :: IO ()
@@ -40,8 +41,19 @@ nextPage = do
         href <- S.attr "href" S.anySelector
         return href
 
-lastPage :: IO (Maybe S.URL)
-lastPage = undefined
+lastPage :: IO ()
+lastPage = do 
+  website <- readFile "test/example/bill_page_1.html"
+  print $ S.scrapeStringLike website next
+
+    where 
+      next :: S.Scraper ByteString [[ByteString]]
+      next = S.chroots ("li" S.@: [S.hasClass "pager-last"]) link
+
+      link :: S.Scraper ByteString [ByteString]
+      link = S.chroots "a" $ do 
+        href <- S.attr "href" S.anySelector
+        return href
 
 recentBills :: IO String
 recentBills = do
