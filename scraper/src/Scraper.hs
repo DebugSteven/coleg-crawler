@@ -18,6 +18,7 @@ runScrape = do
     _   -> putStrLn "Oh god what happened" --do the default flow anyway...?
 
   scrape
+  nextPage
   putStrLn "Save the results."
 
 scrape :: IO ()
@@ -25,17 +26,19 @@ scrape = do
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   L8.writeFile "test/example/bill_page_1.html" $ getResponseBody website
 
-nextPage :: IO (Maybe String)
-nextpage = do 
+nextPage :: IO ()
+nextPage = do 
   website <- readFile "test/example/bill_page_1.html"
-  print $ scrapeStringLike website next
-    where 
-      next :: S.Scraper String [String]
-      next = chroots ("li" @: [hasClass "pager-next"]) link
+  print $ S.scrapeStringLike website next
 
-      link :: S.Scraper String String
-      link = undefined--do 
-        --href <- text $ "a href"
+    where 
+      next :: S.Scraper ByteString [[ByteString]]
+      next = S.chroots ("li" S.@: [S.hasClass "pager-next"]) link
+
+      link :: S.Scraper ByteString [ByteString]
+      link = S.chroots "a" $ do 
+        href <- S.attr "href" S.anySelector
+        return href
 
 lastPage :: IO (Maybe S.URL)
 lastPage = undefined
