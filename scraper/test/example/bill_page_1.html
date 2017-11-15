@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="iem7"  lang="en" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7 no-js"  lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8 no-js"  lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9 no-js"  lang="en" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="ie9 lt-ie10 no-js"  lang="en" dir="ltr"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)]><!--><html class="no-js"  lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<link rel="shortcut icon" href="http://leg.colorado.gov/sites/all/themes/themekit/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="http://leg.colorado.gov/bill-search" />
+<link rel="shortlink" href="http://leg.colorado.gov/bill-search" />
+  <title>Bill Search | Colorado General Assembly</title>
+
+      <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype" content="on">
+
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+  <link rel="" />
+
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="Colorado General Assembly"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="http://leg.colorado.gov/sites/all/themes/themekit/images/favicons/mstile-144x144.png" />
+
+  <link type="text/css" rel="stylesheet" href="http://leg.colorado.gov/sites/default/files/css/css_ywqYrtSodM0qVMzAkOSnqZ_iBnAVpkSeD_yPtUN9tBk.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://leg.colorado.gov/sites/default/files/css/css_lkvHUqwuaMnlSkPLjR6wgdcvM88sr5Mi-fDRQ-vdqKU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://leg.colorado.gov/sites/default/files/css/css_WdXuRxU05AB2dXsuqw0393UM8ritmLXNd9RyvoMrZqQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://leg.colorado.gov/sites/default/files/css/css_CEKp63nTChZxguluREvRJLFcj6iPLs_Q-kGV20TUNNQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://leg.colorado.gov/sites/default/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css" media="all" />
+  <script src="http://leg.colorado.gov/sites/default/files/js/js_t-3EVchQ4odHqhYiRcqkNii5ZnuKVvpsKik3y25Ezz4.js"></script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_WkOMkSyjg9rxsesVK2mUAVX_dhZTWbIE6jpIzuL-ygM.js"></script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_RWNSGzohFTmXCNuv0z6X76PcVrTxIUmQKFYEUEM9b08.js"></script>
+<script src="//use.typekit.net/ylw4wfz.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_DCMmbomVHDZ-gjkWTHc49o9nMz8pmG_3Mu6L5JlZcBg.js"></script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_uiF75tUtWsZIPud4DMk7FvzKr_zA8oqdtm3l-SnQKJ0.js"></script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_SXWz_o0d8Eb50cK1C7aijXv13wfzDHIsY7kUdjRC8f4.js"></script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-84496800-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script src="http://leg.colorado.gov/sites/default/files/js/js_iLFiOYRUTlqG0oRoIPWttAtMaeKeqBh59f7RqVPdGM0.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"themekit","theme_token":"tSzt2McDeAlWVCBA4ALZaYg4iq8iuy2nw4G62O75wQA","jquery_version":"1.10","js":{"sites\/all\/themes\/themekit\/js\/dist\/theme.js":1,"public:\/\/google_tag\/google_tag.script.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.10\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/themekit\/js\/lib\/modernizr.custom-new.js":1,"\/\/use.typekit.net\/ylw4wfz.js":1,"0":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"sites\/all\/libraries\/history.js\/scripts\/bundled\/html4+html5\/jquery.history.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/contrib\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/contrib\/extlink\/extlink.js":1,"sites\/all\/modules\/contrib\/context_accordion\/context_accordion.js":1,"sites\/all\/modules\/contrib\/better_exposed_filters\/better_exposed_filters.js":1,"sites\/all\/modules\/contrib\/views\/js\/base.js":1,"misc\/progress.js":1,"sites\/all\/modules\/contrib\/views\/js\/ajax_view.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"1":1,"2":1,"sites\/all\/modules\/patched\/views_ajax_history\/views_ajax_history.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/contrib\/relation_add\/relation_add.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/extlink\/extlink.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/context_accordion\/context_accordion.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/themekit\/css\/src\/style.css":1,"sites\/all\/themes\/themekit\/system.menus.css":1,"sites\/all\/themes\/themekit\/system.messages.css":1}},"better_exposed_filters":{"datepicker":false,"slider":false,"settings":[],"autosubmit":false,"views":{"bill_search":{"displays":{"full":{"filters":{"search_api_views_fulltext":{"required":false},"field_chamber":{"required":false},"field_bill_type":{"required":false},"field_sessions":{"required":false},"field_subjects":{"required":false}}}}}}},"urlIsAjaxTrusted":{"\/bill-search":true,"\/views\/ajax":true,"\/sitewide-search":true},"viewsAjaxHistory":{"onloadPageItem":0},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:ecc2b9b004174a49bcb82e328e378a1f":{"view_name":"bill_search","view_display_id":"full","view_args":"","view_path":"bill-search","view_base_path":"bill-search","view_dom_id":"ecc2b9b004174a49bcb82e328e378a1f","pager_element":0}}},"extlink":{"extTarget":"_blank","extClass":0,"extLabel":"(link is external)","extImgClass":true,"extSubdomains":1,"extExclude":"([a-z.]@state\\.co\\.us)|(www\\.leg\\.state\\.co\\.us)|(tornado\\.state\\.co\\.us)","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":"_blank","extAlertText":"Note: You are now leaving the Colorado General Assembly website.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});</script>
+      <!--[if lt IE 9]>
+    <script src="/sites/all/themes/zen/js/html5-respond.js"></script>
+    <![endif]-->
+  </head>
+<body class="html not-front not-logged-in no-sidebars page-bill-search section-bill-search page-views f-not-processed" >
+  <div id="skip-to-content">
+    <a href="#main-content" class="skip-to-content-link">Skip to main content</a>
+  </div>
+    <div class="region region-page-top">
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MVR2Z4F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>  </div>
+  
+<div class="page-wrapper">
+
+  <div class="scroll-menu-wrapper">
+  <div class="scroll-menus"></div>
+</div>
+
+<div class="mobile-menu-bar mobile-main-menu-bar"><a href="/" class="site-title">Colorado General Assembly</a><a href="#" class="mobile-main-menu-toggle" data-toggle-target="main">Toggle Main Menu<span class="animated-toggle"><span class="lines"></span></span></a></div>
+<div class="mobile-menu-bar mobile-agency-menu-bar"><span class="agency-title">Agency Name</span><a href="#" class="mobile-agency-menu-toggle" data-toggle-target="agency">Toggle Agency Menu</a></div>
+
+<div class="mobile-menu-wrapper mobile-menu-wrapper-main">
+  <div class="mobile-menu-main"></div>
+</div>
+
+<div class="mobile-menu-wrapper mobile-menu-wrapper-agency">
+  <div class="mobile-menu-agency"></div>
+</div>
+
+  <div id="page">
+
+    <div class="header-wrapper">
+      
+<header id="header" role="banner">
+  <div class="header-top">
+    <div class="brand">
+      <div class="site-title-area">
+        <div class="site-logo">
+          <img src="/sites/all/themes/themekit/images/cga-logo-med.png" alt="Colorado General Assembly Logo">
+        </div>
+        <div class="site-title">
+          <!--            <p class="session-info">2014-2015 First Regular Session | 70th General Assembly</p>-->
+            <p class="session-info">First Regular Session | 71st General Assembly</p>
+                                <span id="site-name">
+            <a href="/" title="Home"
+               rel="home"><span>Colorado General Assembly</span></a>
+          </span>
+                  </div>
+      </div>
+      <a href="#" class="mobile-main-menu-toggle" data-toggle-target="main">Toggle Main Menu<span class="animated-toggle"><span class="lines"></span></span></a>
+    </div>
+    <div class="utility">
+      <nav class="top-bar" role="navigation">
+  <div id="responsive-secondary-menu">
+      <div class="region region-navigation-secondary">
+    <nav id="block-menu-block-2" class="block block-menu-block first last odd" role="navigation">
+
+      
+  <ul class="menu-block-wrapper menu-block-2 menu-name-menu-secondary-menu parent-mlid-0 menu-level-1 menu" >
+  <li class="menu__item is-leaf first leaf menu-mlid-493"><a href="http://leg.colorado.gov/visit-learn" title="" class="menu__link">Visit &amp; Learn</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-494"><a href="/find-my-legislator" title="" class="menu__link">Find My Legislator</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-496"><a href="/watch-listen" title="" class="menu__link">Watch &amp; Listen</a></li>
+</ul>
+
+</nav><!-- /.block -->
+  </div>
+  </div>
+</nav>
+
+
+
+      <div class="header-search">
+        <form action="/sitewide-search" method="get" id="views-exposed-form-sitewide-search-2-simple" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_views_fulltext">
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-search-api-views-fulltext">
+ <input type="text" id="edit-search-api-views-fulltext" name="search_api_views_fulltext" value="" size="30" maxlength="128" class="form-text" />
+</div>
+        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input type="submit" id="edit-submit-sitewide-search-2" name="" value="Apply" class="form-submit" />    </div>
+      </div>
+</div>
+</div></form>      </div>
+    </div>
+  </div>
+
+  
+    <nav id="main-menu" role="navigation">
+      <div class="region region-navigation">
+    <nav id="block-menu-block-1" class="block block-menu-block first last odd" role="navigation">
+
+      
+  <ul class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-1 menu" >
+  <li class="menu__item is-leaf first leaf menu-mlid-4601"><a href="/interim-schedule" class="menu__link">Interim Schedule</a></li>
+<li class="menu__item is-active-trail is-expanded expanded active-trail menu-mlid-417 has-dropdown"><a href="/bills" class="menu__link is-active-trail active-trail">Bills</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-2686"><a href="/bills" title="" class="menu__link">Find A Bill</a></li>
+<li class="menu__item is-active-trail is-leaf leaf active-trail active menu-mlid-2676"><a href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC" title="" class="menu__link is-active-trail active-trail active">All Bills</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8201"><a href="/bills-by-bill-number" title="" class="menu__link">All Bills - Condensed</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3451"><a href="/digest-of-bills" title="" class="menu__link">Bill Digest</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-7946"><a href="http://www.leg.state.co.us/clics/cslFrontPages.nsf/PrevSessionInfo?OpenForm" title="" class="menu__link">Prior Sessions</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded menu-mlid-2521 has-dropdown"><a href="/laws" class="menu__link">Laws</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-3146"><a href="/laws" title="" class="menu__link">Colorado Laws</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8151"><a href="https://leg.colorado.gov/united-states-constitution" title="" class="menu__link">U.S. Constitution</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3151"><a href="/colorado-constitution" class="menu__link">Colorado Constitution</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-2886"><a href="/colorado-revised-statutes" title="A link and short description of the Colorado C.R.S." class="menu__link">Colorado Revised Statutes</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3536"><a href="/session-laws?field_sessions_target_id=10171&amp;sort_bef_combine=field_page_value%20ASC" title="" class="menu__link">Session Laws</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3541"><a href="/committees/colorado-commission-uniform-state-laws/2017-regular-session" title="" class="menu__link">Uniform State Laws</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-3546"><a href="http://www.sos.state.co.us/CCR/Welcome.do" title="" class="menu__link">Executive Agency Rules &amp; Regulations</a></li>
+</ul></li>
+<li class="menu__item is-leaf leaf menu-mlid-469"><a href="/legislators" title="" class="menu__link">Legislators</a></li>
+<li class="menu__item is-expanded expanded menu-mlid-532 has-dropdown"><a href="/content/committees" class="menu__link">Committees</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-3961"><a href="/content/committees" title="" class="menu__link">Committees</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-7171"><a href="/node/927976/" title="" class="menu__link">Committees of Reference Committee Membership</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8091"><a href="/node/970931/" title="" class="menu__link">Year Round &amp; Interim Committee Archives</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-3066"><a href="/remote-testimony" title="" class="menu__link">Remote Testimony Sign-up</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded menu-mlid-536 has-dropdown"><a href="/content/initiatives/initiatives-blue-book-overview" class="menu__link">Initiatives</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-3956"><a href="/content/initiatives/initiatives-blue-book-overview" title="" class="menu__link">Overview</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3211"><a href="/content/initiatives/initiatives-blue-book-overview/initiatives-filed" class="menu__link">Initiatives Filed</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3886"><a href="/BallotAnalysis" class="menu__link">Draft Ballot Analyses</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3881"><a href="/content/initiatives/initiatives-blue-book-overview/ballot-information-booklet-blue-book" class="menu__link">Blue Book</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-8066"><a href="/node/966016/" title="" class="menu__link">History of Election Results for Ballot Issues</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded menu-mlid-564 has-dropdown"><a href="/content/budget" class="menu__link">Budget</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-9696"><a href="/content/budget" title="" class="menu__link">Budget</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8356"><a href="/content/budget/budget-documents" class="menu__link">JBC Documents</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8436"><a href="/agencies/joint-budget-committee" title="" class="menu__link">Joint Budget Committee Staff</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-8431"><a href="/committees/joint-technology-committee/2017-regular-session" title="" class="menu__link">Joint Technology Committee (JTC)</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-8426"><a href="/committees/capital-development-committee/2017-regular-session" title="" class="menu__link">Capital Development Committee (CDC)</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded menu-mlid-1786 has-dropdown"><a href="/content/audits" class="menu__link">Audits</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-3966"><a href="/content/audits" title="" class="menu__link">Find An Audit</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3136"><a href="/audit-search" title="" class="menu__link">All Audits</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-8071"><a href="/audits-by-report-number" title="" class="menu__link">Audits by Report Number</a></li>
+</ul></li>
+<li class="menu__item is-expanded expanded menu-mlid-573 has-dropdown"><a href="/content/publications" class="menu__link">Publications</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-2716"><a href="/content/publications" title="" class="menu__link">Find A Publication</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-2721"><a href="/publication-search" title="" class="menu__link">All Publications</a></li>
+</ul></li>
+<li class="menu__item is-expanded last expanded menu-mlid-565 has-dropdown"><a href="/agencies" class="menu__link">Agencies</a><ul class="expanded-child dropdown"><li class="menu__item is-leaf first leaf menu-mlid-3971"><a href="/agencies" title="" class="menu__link">Agencies</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-703"><a href="/agencies/house-of-representatives" class="menu__link">House of Representatives</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-704"><a href="/agencies/senate" class="menu__link">Senate</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-694"><a href="/agencies/joint-budget-committee" class="menu__link">Joint Budget Committee Staff</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-645"><a href="/agencies/legislative-council-staff" class="menu__link">Legislative Council Staff</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-705"><a href="/agencies/office-of-legislative-legal-services" class="menu__link">Office of Legislative Legal Services</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-681"><a href="/agencies/office-of-the-state-auditor" class="menu__link">Office of the State Auditor</a></li>
+</ul></li>
+</ul>
+
+</nav><!-- /.block -->
+  </div>
+  </nav>
+
+</header>
+    </div>
+
+    
+  <div id="content-btth">
+      
+           
+<!--      <a id="main-content"></a> -->
+      
+                      
+      
+                      
+                      
+      
+                      
+      
+    </div><!--/#content-btth-->
+
+
+
+
+    
+    <noscript>
+  <div class="no-js-message">
+    <p>
+      <strong>This website requires javascript to run optimally on computers, mobile devices, and screen readers. Please enable javascript for the best experience!</strong>
+    </p>
+  </div>
+</noscript>
+
+
+    
+          <div class="content-top-wrap">
+          <div class="region region-content-top">
+    <div id="block-views-exp-bill-search-full" class="block block-views first last odd">
+  <div class="block-container">
+    <div class="block-title-container">
+                      </div>
+    <div class="block-content">
+      <form action="/bill-search" method="get" id="views-exposed-form-bill-search-full" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_views_fulltext">
+                  <label for="edit-search-api-views-fulltext">
+            Bill #, Sponsor, or Keyword          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-search-api-views-fulltext">
+ <input type="text" id="edit-search-api-views-fulltext" name="search_api_views_fulltext" value="" size="30" maxlength="128" class="form-text" />
+</div>
+        </div>
+              </div>
+          <div id="edit-field-chamber-wrapper" class="views-exposed-widget views-widget-filter-field_chamber">
+                  <label for="edit-field-chamber">
+            House of Origin          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-select form-item-field-chamber">
+ <select id="edit-field-chamber" name="field_chamber" class="form-select"><option value="All" selected="selected">- All -</option><option value="1">House</option><option value="2">Senate</option></select>
+</div>
+        </div>
+              </div>
+          <div id="edit-field-bill-type-wrapper" class="views-exposed-widget views-widget-filter-field_bill_type">
+                  <label for="edit-field-bill-type">
+            Type          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-select form-item-field-bill-type">
+ <select id="edit-field-bill-type" name="field_bill_type" class="form-select"><option value="All" selected="selected">- All -</option><option value="75">Bill</option><option value="77">Memorial</option><option value="76">Resolution</option></select>
+</div>
+        </div>
+              </div>
+          <div id="edit-field-sessions-wrapper" class="views-exposed-widget views-widget-filter-field_sessions">
+                  <label for="edit-field-sessions">
+            Session          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-select form-item-field-sessions">
+ <select id="edit-field-sessions" name="field_sessions" class="form-select"><option value="All">- All -</option><option value="10171" selected="selected">2017 Regular Session</option><option value="27016">2017 Extraordinary Session</option><option value="30">2016 Regular Session</option></select>
+</div>
+        </div>
+              </div>
+          <div id="edit-field-subjects-wrapper" class="views-exposed-widget views-widget-filter-field_subjects">
+                  <label for="edit-field-subjects">
+            Subject          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-select form-item-field-subjects">
+ <select style="width: 100%;" multiple="multiple" name="field_subjects[]" id="edit-field-subjects" size="9" class="form-select"><option value="37">Agriculture</option><option value="42">Business &amp; Economic Development</option><option value="41">Capital Construction</option><option value="246">Children &amp; Domestic Matters</option><option value="46">Civil Law</option><option value="47">Courts &amp; Judicial</option><option value="2066">Crimes, Corrections, &amp; Enforcement</option><option value="49">Education &amp; School Finance (Pre &amp; K-12)</option><option value="52">Elections &amp; Redistricting</option><option value="40">Energy</option><option value="236">Financial Services &amp; Commerce</option><option value="65">Fiscal Policy &amp; Taxes</option><option value="63">Gaming</option><option value="2056">Health Care &amp; Health Insurance</option><option value="50">Higher Education</option><option value="58">Housing</option><option value="57">Human Services</option><option value="69">Immigration</option><option value="44">Insurance</option><option value="59">Labor &amp; Employment</option><option value="2071">Liquor, Tobacco, &amp; Marijuana</option><option value="54">Local Government</option><option value="55">Military &amp; Veterans</option><option value="38">Natural Resources &amp; Environment</option><option value="60">Public Health</option><option value="53">State Government</option><option value="66">State Revenue &amp; Budget</option><option value="241">Telecommunications &amp; Information Technology</option><option value="67">Transportation &amp; Motor Vehicles</option><option value="39">Water</option></select>
+</div>
+        </div>
+              </div>
+          <div id="edit-sort-bef-combine-wrapper" class="views-exposed-widget views-widget-sort-sort_bef_combine">
+                        <div class="views-widget">
+          <div class="form-item form-type-select form-item-sort-bef-combine">
+  <label for="edit-sort-bef-combine">Sort by </label>
+ <select id="edit-sort-bef-combine" name="sort_bef_combine" class="form-select"><option value="search_api_relevance DESC">Most Relevant</option><option value="field_bill_number ASC" selected="selected">Bill # Ascending</option><option value="field_bill_number DESC">Bill # Descending</option><option value="field_date ASC">Last Action Ascending</option><option value="field_date DESC">Last Action Descending</option></select>
+</div>
+        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input type="submit" id="edit-submit-bill-search" name="" value="Apply" class="form-submit" />    </div>
+      </div>
+</div>
+</div></form>    </div>
+  </div>
+
+</div>
+  </div>
+      </div>
+        <div class="main-content-section-container">
+      <div class="main-content-section">
+        <main id="main-content" class="main-content" role="main">
+          
+
+
+<div class="view view-bill-search view-id-bill_search view-display-id-full view-dom-id-ecc2b9b004174a49bcb82e328e378a1f">
+            <div class="view-header">
+      Displaying 1 - 25 of 793 results    </div>
+  
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+
+<article class="node-932501 node node-bill view-mode-search clearfix" about="/bills/hb17-1001" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1001</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1001">Employee Leave Attend Child&#039;s Academic Activities</a></h4>
+      <span property="dc:title" content="Employee Leave Attend Child&#039;s Academic Activities" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the ability of an employee of an employer who employs at least fifty employees to take up to eighteen hours of leave from work for purposes of attending his or her child&#039;s academic activities.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/15/2017 | Senate Committee on State, Veterans, &amp; Military Affairs Postpone Indefinitely</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/janet-p-buckner">Rep. J. Buckner</a> | </span>
+                  <span><a href="/legislators/andy-kerr">Sen. A. Kerr</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Labor &amp; Employment</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+
+<article class="node-932276 node node-bill view-mode-search clearfix" about="/bills/hb17-1002" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1002</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1002">Child Care Expenses Income Tax Credit Extension</a></h4>
+      <span property="dc:title" content="Child Care Expenses Income Tax Credit Extension" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the extension of the income tax credit for child care expenses paid by a resident individual with a federal adjusted gross income of twenty-five thousand dollars or less.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>06/2/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/brittany-pettersen">Rep. B. Pettersen</a> | </span>
+                  <span><a href="/legislators/tony-exum-sr">Rep. T. Exum</a> | </span>
+                  <span><a href="/legislators/beth-martinez-humenik">Sen. B. Martinez Humenik</a> | </span>
+                  <span><a href="/legislators/john-kefalas">Sen. J. Kefalas</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+
+<article class="node-932466 node node-bill view-mode-search clearfix" about="/bills/hb17-1003" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1003</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1003">Strategic Plan To Address Teacher Shortages</a></h4>
+      <span property="dc:title" content="Strategic Plan To Address Teacher Shortages" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a strategic action plan to address teacher shortages in Colorado.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>05/21/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/barbara-mclachlan">Rep. B. McLachlan</a> | </span>
+                  <span><a href="/legislators/don-coram">Sen. D. Coram</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Education &amp; School Finance (Pre &amp; K-12)</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    
+
+<article class="node-932476 node node-bill view-mode-search clearfix" about="/bills/hb17-1004" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1004</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1004">College Credit For Military Education And Training</a></h4>
+      <span property="dc:title" content="College Credit For Military Education And Training" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a statewide policy for awarding college credit for military education and training.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>06/1/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/dafna-michaelson-jenet">Rep. D. Michaelson Jenet</a> | </span>
+                  <span><a href="/legislators/jessie-danielson">Rep. J. Danielson</a> | </span>
+                  <span><a href="/legislators/owen-hill">Sen. O. Hill</a> | </span>
+                  <span><a href="/legislators/leroy-m-garcia-jr">Sen. L. Garcia</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Higher Education</div>
+          <div class="field-item odd">Military &amp; Veterans</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    
+
+<article class="node-932126 node node-bill view-mode-search clearfix" about="/bills/hb17-1005" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1005</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1005">Modernize Laws Relating To Office Of State Auditor</a></h4>
+      <span property="dc:title" content="Modernize Laws Relating To Office Of State Auditor" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning modernization of various laws relating to the office of the state auditor.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/1/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jeni-james-arndt">Rep. J. Arndt</a> | </span>
+                  <span><a href="/legislators/jack-tate">Sen. J. Tate</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-6 views-row-even">
+    
+
+<article class="node-932261 node node-bill view-mode-search clearfix" about="/bills/hb17-1006" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1006</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1006">Correct Statutory Citation In Rule Without Hearing</a></h4>
+      <span property="dc:title" content="Correct Statutory Citation In Rule Without Hearing" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the authorization of a process to correct statutory citations contained in executive branch agency rules published in the code of Colorado regulations without the requirement to follow rule-making procedures.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/16/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/mike-foote">Rep. M. Foote</a> | </span>
+                  <span><a href="/legislators/daniel-kagan">Sen. D. Kagan</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-7 views-row-odd">
+    
+
+<article class="node-932411 node node-bill view-mode-search clearfix" about="/bills/hb17-1007" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1007</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1007">Tax Benefit Employer Collegeinvest Contribution</a></h4>
+      <span property="dc:title" content="Tax Benefit Employer Collegeinvest Contribution" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a tax benefit for an employer who contributes to an employee&#039;s collegeinvest account, and, in connection therewith, enacting the &#039;Increase College Savings Act&#039;.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>04/12/2017 | House Committee on Education Postpone Indefinitely</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/alec-garnett">Rep. A. Garnett</a> | </span>
+                  <span><a href="/legislators/bob-gardner">Sen. B. Gardner</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-8 views-row-even">
+    
+
+<article class="node-932236 node node-bill view-mode-search clearfix" about="/bills/hb17-1008" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1008</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1008">Graywater Regulation Exemption For Scientific Research</a></h4>
+      <span property="dc:title" content="Graywater Regulation Exemption For Scientific Research" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning an exemption from the water quality control commission&#039;s graywater control regulations for graywater used for the purpose of scientific research involving human exposure.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>05/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jeni-james-arndt">Rep. J. Arndt</a> | </span>
+                  <span><a href="/legislators/jerry-sonnenberg">Sen. J. Sonnenberg</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Agriculture</div>
+          <div class="field-item odd">Water</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-9 views-row-odd">
+    
+
+<article class="node-932461 node node-bill view-mode-search clearfix" about="/bills/hb17-1009" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1009</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1009">Restore Nonessential Articles Tax Exemptions</a></h4>
+      <span property="dc:title" content="Restore Nonessential Articles Tax Exemptions" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the reinstatement of the exemptions from state sales and use taxes for nonessential articles sold to sellers of items intended for human consumption that are furnished by the sellers to their customers with the items without the addition of a separate charge that were eliminated by House Bill 10-1194.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>01/26/2017 | House Committee on State, Veterans, &amp; Military Affairs Postpone Indefinitely</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/kevin-van-winkle">Rep. K. Van Winkle</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-10 views-row-even">
+    
+
+<article class="node-932421 node node-bill view-mode-search clearfix" about="/bills/hb17-1010" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1010</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1010">Dental Practice Act And Dental Hygiene</a></h4>
+      <span property="dc:title" content="Dental Practice Act And Dental Hygiene" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the authority of the Colorado dental board to promulgate rules based on clarifications to existing laws that relate to collaborative dental agreements.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/1/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/joann-ginal">Rep. J. Ginal</a> | </span>
+                  <span><a href="/legislators/larry-w-crowder">Sen. L. Crowder</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Public Health</div>
+          <div class="field-item odd">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-11 views-row-odd">
+    
+
+<article class="node-932386 node node-bill view-mode-search clearfix" about="/bills/hb17-1011" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1011</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1011">Statute Of Limitation Discipline Mental Health Professional</a></h4>
+      <span property="dc:title" content="Statute Of Limitation Discipline Mental Health Professional" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a limitation on when certain disciplinary actions may be commenced against a mental health professional, and, in connection therewith, requiring that a mental health professional provide notice to former clients regarding record retention and that all complaints be resolved by the agency within two years after the date the complaint was filed.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/16/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jovan-melton">Rep. J. Melton</a> | </span>
+                  <span><a href="/legislators/jack-tate">Sen. J. Tate</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-12 views-row-even">
+    
+
+<article class="node-932241 node node-bill view-mode-search clearfix" about="/bills/hb17-1012" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1012</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1012">Pueblo Chile Vehicle License Plate</a></h4>
+      <span property="dc:title" content="Pueblo Chile Vehicle License Plate" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the creation of a Pueblo chile license plate.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>04/18/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/daneya-esgar">Rep. D. Esgar</a> | </span>
+                  <span><a href="/legislators/leroy-m-garcia-jr">Sen. L. Garcia</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Transportation &amp; Motor Vehicles</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-13 views-row-odd">
+    
+
+<article class="node-932176 node node-bill view-mode-search clearfix" about="/bills/hb17-1013" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1013</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1013">Free Exercise Of Religion</a></h4>
+      <span property="dc:title" content="Free Exercise Of Religion" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a person&#039;s free exercise of religion.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>01/25/2017 | House Committee on State, Veterans, &amp; Military Affairs Postpone Indefinitely</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/stephen-humphrey">Rep. S. Humphrey</a> | </span>
+                  <span><a href="/legislators/dave-williams">Rep. D. Williams</a> | </span>
+                  <span><a href="/legislators/vicki-marble">Sen. V. Marble</a> | </span>
+                  <span><a href="/legislators/tim-neville">Sen. T. Neville</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-14 views-row-even">
+    
+
+<article class="node-932396 node node-bill view-mode-search clearfix" about="/bills/hb17-1014" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1014</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1014">Election Offenses Committed By A Voter</a></h4>
+      <span property="dc:title" content="Election Offenses Committed By A Voter" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the elimination of the criminal penalty imposed upon an elector for disclosing the contents of the elector&#039;s voted ballot.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/16/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/paul-rosenthal">Rep. P. Rosenthal</a> | </span>
+                  <span><a href="/legislators/dave-williams">Rep. D. Williams</a> | </span>
+                  <span><a href="/legislators/kerry-donovan">Sen. K. Donovan</a> | </span>
+                  <span><a href="/legislators/owen-hill">Sen. O. Hill</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Elections &amp; Redistricting</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-15 views-row-odd">
+    
+
+<article class="node-932481 node node-bill view-mode-search clearfix" about="/bills/hb17-1015" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1015</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1015">Clarify Good Time Sentence Reductions In Jails</a></h4>
+      <span property="dc:title" content="Clarify Good Time Sentence Reductions In Jails" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning clarifying the manner in which reductions of inmates&#039; sentences are administered in county jails.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/23/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/edie-hooton">Rep. E. Hooton</a> | </span>
+                  <span><a href="/legislators/john-cooke">Sen. J. Cooke</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Crimes, Corrections, &amp; Enforcement</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-16 views-row-even">
+    
+
+<article class="node-932141 node node-bill view-mode-search clearfix" about="/bills/hb17-1016" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1016</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1016">Exclude Value Mineral Resources Tax Increment Financing Division</a></h4>
+      <span property="dc:title" content="Exclude Value Mineral Resources Tax Increment Financing Division" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the ability of an urban renewal authority to exclude the valuation attributable to the extraction of mineral resources located within an urban renewal area from the total amount of taxable property subject to division for the purpose of financing urban renewal projects.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/lori-saine">Rep. L. Saine</a> | </span>
+                  <span><a href="/legislators/matt-gray">Rep. M. Gray</a> | </span>
+                  <span><a href="/legislators/beth-martinez-humenik">Sen. B. Martinez Humenik</a> | </span>
+                  <span><a href="/legislators/rachel-zenzinger">Sen. R. Zenzinger</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+          <div class="field-item odd">Local Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-17 views-row-odd">
+    
+
+<article class="node-932491 node node-bill view-mode-search clearfix" about="/bills/hb17-1017" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1017</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1017">County Surveyor Duties</a></h4>
+      <span property="dc:title" content="County Surveyor Duties" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning county surveyors.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/chris-kennedy">Rep. C. Kennedy</a> | </span>
+                  <span><a href="/legislators/cheri-jahn">Sen. C. Jahn</a> | </span>
+                  <span><a href="/legislators/randy-l-baumgardner">Sen. R. Baumgardner</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Local Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-18 views-row-even">
+    
+
+<article class="node-932316 node node-bill view-mode-search clearfix" about="/bills/hb17-1018" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1018</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1018">Extend Voter Approval Window For RTA Regional Transportation Authority Mill Levy</a></h4>
+      <span property="dc:title" content="Extend Voter Approval Window For RTA Regional Transportation Authority Mill Levy" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning extension of the authorization for a regional transportation authority to seek voter approval for a uniform mill levy on all taxable property within its territory.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/1/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/diane-mitsch-bush">Rep. D. Mitsch Bush</a> | </span>
+                  <span><a href="/legislators/larry-liston">Rep. L. Liston</a> | </span>
+                  <span><a href="/legislators/bob-gardner">Sen. B. Gardner</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+          <div class="field-item odd">Local Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-19 views-row-odd">
+    
+
+<article class="node-932406 node node-bill view-mode-search clearfix" about="/bills/hb17-1019" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1019</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1019">Property Tax Redemption Third Party Costs</a></h4>
+      <span property="dc:title" content="Property Tax Redemption Third Party Costs" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the amounts collected by a county treasurer upon redemption of specified property interests from a tax sale.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/donald-valdez">Rep. D. Valdez</a> | </span>
+                  <span><a href="/legislators/don-coram">Sen. D. Coram</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Fiscal Policy &amp; Taxes</div>
+          <div class="field-item odd">Local Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-20 views-row-even">
+    
+
+<article class="node-932206 node node-bill view-mode-search clearfix" about="/bills/hb17-1020" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1020</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1020">Staffing Task Force Mental Illness Justice Systems</a></h4>
+      <span property="dc:title" content="Staffing Task Force Mental Illness Justice Systems" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">concerning treatment of persons with mental illness in the criminal and juvenile justice systems.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jonathan-singer">Rep. J. Singer</a> | </span>
+                  <span><a href="/legislators/beth-martinez-humenik">Sen. B. Martinez Humenik</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-21 views-row-odd">
+    
+
+<article class="node-932196 node node-bill view-mode-search clearfix" about="/bills/hb17-1021" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1021</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1021">Wage Theft Transparency Act</a></h4>
+      <span property="dc:title" content="Wage Theft Transparency Act" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">concerning an employer&#039;s violation of wage laws.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>04/13/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jessie-danielson">Rep. J. Danielson</a> | </span>
+                  <span><a href="/legislators/john-cooke">Sen. J. Cooke</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Labor &amp; Employment</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-22 views-row-even">
+    
+
+<article class="node-932131 node node-bill view-mode-search clearfix" about="/bills/hb17-1022" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1022</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1022">Teaching Competent History In Public Schools</a></h4>
+      <span property="dc:title" content="Teaching Competent History In Public Schools" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning teaching civil government in public schools, including the history, culture, and contributions of American Indians, Hispanic Americans, African Americans, and Asian Americans, and, in connection therewith, making an appropriation.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>05/3/2017 | Senate Committee on State, Veterans, &amp; Military Affairs Postpone Indefinitely</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/joseph-salazar">Rep. J. Salazar</a> | </span>
+                  <span><a href="/legislators/dominick-moreno">Sen. D. Moreno</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Education &amp; School Finance (Pre &amp; K-12)</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-23 views-row-odd">
+    
+
+<article class="node-932351 node node-bill view-mode-search clearfix" about="/bills/hb17-1023" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1023</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1023">Clarifying Deceptive Trade Practice Subpoenas</a></h4>
+      <span property="dc:title" content="Clarifying Deceptive Trade Practice Subpoenas" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning a clarification of procedures for subpoenas for deceptive trade practices.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/20/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/tracy-kraft-tharp">Rep. T. Kraft-Tharp</a> | </span>
+                  <span><a href="/legislators/cole-wist">Rep. C. Wist</a> | </span>
+                  <span><a href="/legislators/chris-holbert">Sen. C. Holbert</a> | </span>
+                  <span><a href="/legislators/lois-court">Sen. L. Court</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subjects: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Business &amp; Economic Development</div>
+          <div class="field-item odd">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-24 views-row-even">
+    
+
+<article class="node-932226 node node-bill view-mode-search clearfix" about="/bills/hb17-1024" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1024</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1024">Nonsubstantive Relocation Commission On Family Medicine</a></h4>
+      <span property="dc:title" content="Nonsubstantive Relocation Commission On Family Medicine" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the nonsubstantive relocation of laws pertaining to the commission on family medicine.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/1/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/dan-thurlow">Rep. D. Thurlow</a> | </span>
+                  <span><a href="/legislators/dominick-moreno">Sen. D. Moreno</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+  <div class="views-row views-row-25 views-row-odd views-row-last">
+    
+
+<article class="node-932221 node node-bill view-mode-search clearfix" about="/bills/hb17-1025" typeof="sioc:Item foaf:Document">
+  <div class="search-main">
+    <header class="search-result-single-item">
+      <div class="field field-name-field-bill-number field-type-text field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">HB17-1025</div>
+      </div>
+</div>
+            <h4 class="node__title node-title"><a href="/bills/hb17-1025">Repeal Obsolete State Legislative District Laws</a></h4>
+      <span property="dc:title" content="Repeal Obsolete State Legislative District Laws" class="rdf-meta element-hidden"></span>      <div class="field field-name-field-bill-long-title field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Concerning the repeal of obsolete laws relating to reapportionment of state legislative districts.</div>
+      </div>
+</div>
+    </header>
+          <div class="bill-last-action search-result-single-item">
+        <label>Last Action: </label>
+        <span>03/8/2017 | Governor Signed</span>
+      </div>
+              <div class="bill-sponsors search-result-single-item">
+        <label>Sponsors:</label>
+                          <span><a href="/legislators/jeni-james-arndt">Rep. J. Arndt</a> | </span>
+                  <span><a href="/legislators/chris-holbert">Sen. C. Holbert</a></span>
+              </div>
+          </div>
+  <div class="search-aside">
+          <div class="bill-session search-result-single-item">
+        <label>Session: </label><div class="field field-name-field-sessions field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">2017 Regular Session</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-type search-result-single-item">
+        <label>Type: </label><div class="field field-name-field-bill-type field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">Bill</div>
+      </div>
+</div>
+      </div>
+    
+          <div class="bill-subjects search-result-single-item">
+        <label>Subject: </label>
+        <div class="field field-name-field-subjects field-type-entityreference field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even">State Government</div>
+      </div>
+</div>
+      </div>
+      </div>
+
+</article>
+  </div>
+    </div>
+  
+      <h2 class="element-invisible">Pages</h2><div class="item-list"><ul class="pager"><li class="pager-current first">1</li>
+<li class="pager-item"><a title="Go to page 2" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=1">2</a></li>
+<li class="pager-item"><a title="Go to page 3" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=2">3</a></li>
+<li class="pager-item"><a title="Go to page 4" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=3">4</a></li>
+<li class="pager-item"><a title="Go to page 5" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=4">5</a></li>
+<li class="pager-item"><a title="Go to page 6" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=5">6</a></li>
+<li class="pager-item"><a title="Go to page 7" href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=6">7</a></li>
+<li class="pager-ellipsis">…</li>
+<li class="pager-next"><a href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=1">Next</a></li>
+<li class="pager-last last"><a href="/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=31"></a></li>
+</ul></div>  
+  
+  
+  
+  
+</div>                  </main>
+              </div>
+    </div>
+
+    
+    <div class="footer">
+      <div class="footer-bottom">
+  <div class="footer-content-wrapper">
+    <div class="footer-content">
+        <div class="region region-footer-1">
+    <div id="block-bean-footer-copy" class="block block-bean first last odd">
+  <div class="block-container">
+    <div class="block-title-container">
+                    <h2 class="block__title block-title">Colorado General Assembly</h2>
+                </div>
+    <div class="block-content">
+      <div class="entity entity-bean bean-basic-block clearfix" about="/block/footer-copy" typeof="">
+
+  <div class="content">
+    <div class="field field-name-field-body field-type-text-long field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even"><div>Colorado General Assembly</div>
+<div>200 E Colfax Avenue</div>
+<div>Denver, CO 80203</div>
+<p><a href="mailto:comments.ga@state.co.us">comments.ga@state.co.us</a></p>
+</div>
+      </div>
+</div>
+  </div>
+</div>
+    </div>
+  </div>
+
+</div>
+  </div>
+        <div class="region region-footer-2">
+    <nav id="block-menu-block-9" class="block block-menu-block first last odd" role="navigation">
+
+        <h2 class="block__title block-title">Resources &amp; Information</h2>
+    
+  <ul class="menu-block-wrapper menu-block-9 menu-name-menu-footer-menu-1 parent-mlid-0 menu-level-1 menu" >
+  <li class="menu__item is-leaf first leaf menu-mlid-780"><a href="/executive-agency-rules-regulations" title="" class="menu__link">Rules &amp; Regulations of Executive Agencies</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-782"><a href="http://www.colorado.gov/" title="" class="menu__link">State Home</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3911"><a href="https://www.colorado.gov/apps/oit/transparency/index.html" title="" class="menu__link">Transparency Online Project</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-4506"><a href="/legislative-complex-advisory" title="" class="menu__link">Legislative Complex Advisory</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-4516"><a href="/legislative-resources-requirements" title="" class="menu__link">Legislative Resources &amp; Requirements</a></li>
+</ul>
+
+</nav><!-- /.block -->
+  </div>
+        <div class="region region-footer-3">
+    <nav id="block-menu-block-10" class="block block-menu-block first last odd" role="navigation">
+
+        <h2 class="block__title block-title">Policies</h2>
+    
+  <ul class="menu-block-wrapper menu-block-10 menu-name-menu-footer-menu-2 parent-mlid-0 menu-level-1 menu" >
+  <li class="menu__item is-leaf first leaf menu-mlid-3921"><a href="/node/580141/" title="" class="menu__link">Capitol Security Protocol</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-785"><a href="/open-records-requests" title="" class="menu__link">Open Records Requests &amp; Policy</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-786"><a href="http://leg.colorado.gov/sites/default/files/privacypolicy.pdf" title="" class="menu__link">Privacy Policy</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-3916"><a href="http://leg.colorado.gov/sites/default/files/publicwifi.pdf" title="" class="menu__link">Public Wi-Fi</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-4836"><a href="http://leg.colorado.gov/publications/legislative-branch-policy-services-persons-disabilities-provide-access-official" title="" class="menu__link">Services for Persons with Disabilities</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-784"><a href="/publications/workplace-harassment-policy-general-assembly" title="" class="menu__link">Workplace Harassment Policy</a></li>
+</ul>
+
+</nav><!-- /.block -->
+  </div>
+        <div class="region region-footer-4">
+    <nav id="block-menu-block-11" class="block block-menu-block first last odd" role="navigation">
+
+        <h2 class="block__title block-title">For Legislators &amp; Staff</h2>
+    
+  <ul class="menu-block-wrapper menu-block-11 menu-name-menu-footer-menu-3 parent-mlid-0 menu-level-1 menu" >
+  <li class="menu__item is-leaf first leaf menu-mlid-789"><a href="https://sites.google.com/view/coga-ethics-tutorial/" title="" class="menu__link">Ethics Tutorial</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-790"><a href="https://leg.colorado.gov/user/login" title="" class="menu__link">IT Login</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-5506"><a href="/new-member-orientation" title="" class="menu__link">New Member Orientation</a></li>
+<li class="menu__item is-leaf leaf menu-mlid-7611"><a href="/social-calendar" title="" class="menu__link">Social Calendar</a></li>
+<li class="menu__item is-leaf last leaf menu-mlid-8056"><a href="/house-senate-rules" title="" class="menu__link">House and Senate Rules</a></li>
+</ul>
+
+</nav><!-- /.block -->
+  </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+  <!-- Background of PhotoSwipe.
+       It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+
+    <!-- Container that holds slides.
+        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+        Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+
+      <div class="pswp__top-bar">
+
+        <!--  Controls are self-explanatory. Order can be changed. -->
+
+        <div class="pswp__counter"></div>
+
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+        <button class="pswp__button pswp__button--share" title="Share"></button>
+
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp preloader active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>  <script src="http://leg.colorado.gov/sites/default/files/js/js_4p1IqtWA0geje24F15Q7LqLa34cOHCU51ZfYb9-kyP4.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"48ca2afd60","applicationID":"65781041","transactionName":"NFxVNxBUD0pSU0FbCw0WYhELGghXV1VNHBQLSQ==","queueTime":0,"applicationTime":22,"atts":"GBtWQVhOHEQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

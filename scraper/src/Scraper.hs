@@ -1,6 +1,4 @@
-module Scraper 
-  ( runScrape ) 
-    where
+module Scraper where
 
 import ClassyPrelude
 import Control.Monad.IO.Class (liftIO)
@@ -8,6 +6,23 @@ import qualified Data.Conduit.List as CL
 import Network.HTTP.Simple
 import qualified Data.ByteString.Lazy.Char8 as L8
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
+import qualified Text.HTML.Scalpel as S
+import Control.Applicative 
+import Data.Maybe
+
+
+data Bill = Bill { billNumber :: String
+                 , billURL :: URL
+                 , billTitle :: String
+                 , billDescription :: String
+                 , lastAction :: String --date? MM/DD/YYYY
+                 , nextAction :: String --date? MM/DD/YYYY
+                 , billSponsors :: [Legislature] 
+                 } deriving Show
+
+data Legislature = Legislature Name URL 
+newtype Name = Name String
+newtype URL = URL String
 
 runScrape :: IO ()
 runScrape = do
@@ -19,10 +34,34 @@ runScrape = do
 
   putStrLn "Save the results."
 
-scrape :: IO ()
+scrape :: IO L8.ByteString 
 scrape = do 
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
-  L8.writeFile "test.html" $ getResponseBody website
+  return $ getResponseBody website
+
+nextPage :: ByteString -> (Maybe ByteString) 
+nextPage website = do 
+  S.scrapeStringLike website next >>= listToMaybe
+
+    where 
+      next :: S.Scraper ByteString [ByteString]
+      next = S.chroots ("li" S.@: [S.hasClass "pager-next"]) link
+
+      link :: S.Scraper ByteString ByteString
+      link = do 
+        S.attr "href" "a" 
+
+lastPage :: ByteString -> (Maybe ByteString)
+lastPage website = do 
+  S.scrapeStringLike website next >>= listToMaybe
+
+    where 
+      next :: S.Scraper ByteString [ByteString]
+      next = S.chroots ("li" S.@: [S.hasClass "pager-last"]) link
+
+      link :: S.Scraper ByteString ByteString
+      link = do 
+        S.attr "href" "a" 
 
 recentBills :: IO String
 recentBills = do

@@ -17,6 +17,7 @@ dependencies:
   - http-conduit
   - conduit
   - bytestring
+  - scalpel
 
 library:
   source-dirs:        src
@@ -43,3 +44,4 @@ tests:
       - scraper
       - QuickCheck
       - hspec
+      - string-conversions
