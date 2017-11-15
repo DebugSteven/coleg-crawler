@@ -10,6 +10,20 @@ import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
 import Data.Maybe
 
+
+data Bill = Bill { billNumber :: String
+                 , billURL :: URL
+                 , billTitle :: String
+                 , billDescription :: String
+                 , lastAction :: String --date? MM/DD/YYYY
+                 , nextAction :: String --date? MM/DD/YYYY
+                 , billSponsors :: [Legislature] 
+                 } deriving Show
+
+data Legislature = Legislature Name URL 
+newtype Name = Name String
+newtype URL = URL String
+
 runScrape :: IO ()
 runScrape = do
   userOption <- recentBills
