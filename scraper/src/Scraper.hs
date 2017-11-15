@@ -20,48 +20,34 @@ runScrape = do
 
   putStrLn "Save the results."
 
-scrape :: IO ()
+scrape :: IO L8.ByteString 
 scrape = do 
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
-  L8.writeFile "test/example/bill_page_1.html" $ getResponseBody website
+  return $ getResponseBody website
 
--- I'm very sorry. Forgive me for my sins.
-fixNextPage = fmap mconcat . fmap mconcat $ fmap fromMaybe' nextPage
-fixLastPage = fmap mconcat . fmap mconcat $ fmap fromMaybe' lastPage
-
--- This is far from ideal. please change it later 
-fromMaybe' mval = 
-  case mval of 
-    Nothing  -> undefined 
-    Just val -> val
-
-nextPage :: IO (Maybe [[ByteString]]) 
-nextPage = do 
-  website <- readFile "test/example/bill_page_1.html"
-  return $ S.scrapeStringLike website next
+nextPage :: ByteString -> (Maybe ByteString) 
+nextPage website = do 
+  S.scrapeStringLike website next >>= listToMaybe
 
     where 
-      next :: S.Scraper ByteString [[ByteString]]
+      next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-next"]) link
 
-      link :: S.Scraper ByteString [ByteString]
-      link = S.chroots "a" $ do 
-        href <- S.attr "href" S.anySelector
-        return href
+      link :: S.Scraper ByteString ByteString
+      link = do 
+        S.attr "href" "a" 
 
-lastPage :: IO (Maybe [[ByteString]])
-lastPage = do 
-  website <- readFile "test/example/bill_page_1.html"
-  return $ S.scrapeStringLike website next
+lastPage :: ByteString -> (Maybe ByteString)
+lastPage website = do 
+  S.scrapeStringLike website next >>= listToMaybe
 
     where 
-      next :: S.Scraper ByteString [[ByteString]]
+      next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-last"]) link
 
-      link :: S.Scraper ByteString [ByteString]
-      link = S.chroots "a" $ do 
-        href <- S.attr "href" S.anySelector
-        return href
+      link :: S.Scraper ByteString ByteString
+      link = do 
+        S.attr "href" "a" 
 
 recentBills :: IO String
 recentBills = do
