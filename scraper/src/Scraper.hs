@@ -10,7 +10,6 @@ import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
 import Data.Maybe
 
-
 data Bill = Bill { billNumber :: String
                  , billURL :: URL
                  , billTitle :: String
