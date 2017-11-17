@@ -52,7 +52,6 @@ nextPage website = do
 lastPage :: ByteString -> (Maybe ByteString)
 lastPage website = do 
   S.scrapeStringLike website next >>= listToMaybe
-
     where 
       next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-last"]) link
