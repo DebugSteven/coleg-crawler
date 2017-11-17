@@ -17,11 +17,11 @@ data Bill = Bill { billNumber :: String
                  , lastAction :: String --date? MM/DD/YYYY
                  , nextAction :: String --date? MM/DD/YYYY
                  , billSponsors :: [Legislature] 
-                 } deriving Show
+                 } deriving (Eq, Show)
 
-data Legislature = Legislature Name URL 
-newtype Name = Name String
-newtype URL = URL String
+data Legislature = Legislature Name URL deriving (Eq, Show)
+newtype Name = Name String deriving (Eq, Show)
+newtype URL = URL String deriving (Eq, Show)
 
 runScrape :: IO ()
 runScrape = do
