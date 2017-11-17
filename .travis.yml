@@ -30,9 +30,8 @@ services:
 - postgresql
 
 before_script:
-- psql -c 'create database test;' -U postgres
-- psql -c 'create role test LOGIN CREATEDB;' -U postgres
-- psql -c 'create database "coleg_test";' -U test
+- psql -c 'create role coleg LOGIN CREATEDB;' -U postgres
+- psql -c 'create database "coleg_test";' -U coleg
 
 # This line does all of the work: installs GHC if necessary, build the library,
 # executables, and test suites, and runs the test suites. --no-terminal works
