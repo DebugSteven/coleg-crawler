@@ -33,10 +33,17 @@ runScrape = do
 
   putStrLn "Save the results."
 
+-- this will be the base page for any scrape we do
 scrape :: IO L8.ByteString 
 scrape = do 
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   return $ getResponseBody website
+
+-- this will be a test bill to use for now
+scrapeBill :: IO L8.ByteString
+scrapeBill = do
+  billSite <- httpLBS "http://leg.colorado.gov/bills/hb17-1001"
+  return $ getResponseBody billSite
 
 nextPage :: ByteString -> (Maybe ByteString) 
 nextPage website = do 
