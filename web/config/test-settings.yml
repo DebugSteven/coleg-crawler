@@ -6,6 +6,6 @@ database:
   # something like:
   #
   #   database: "_env:PGDATABASE:web_test"
-  database: web_test
+  database: coleg_test
 
 auth-dummy-login: true
