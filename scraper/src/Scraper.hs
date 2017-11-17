@@ -17,11 +17,11 @@ data Bill = Bill { billNumber :: String
                  , lastAction :: String --date? MM/DD/YYYY
                  , nextAction :: String --date? MM/DD/YYYY
                  , billSponsors :: [Legislature] 
-                 } deriving Show
+                 } deriving (Show, Eq)
 
-data Legislature = Legislature Name URL 
-newtype Name = Name String
-newtype URL = URL String
+data Legislature = Legislature Name URL deriving (Show, Eq)
+newtype Name = Name String deriving (Show, Eq)
+newtype URL = URL String deriving (Show, Eq)
 
 runScrape :: IO ()
 runScrape = do
@@ -41,7 +41,6 @@ scrape = do
 nextPage :: ByteString -> (Maybe ByteString) 
 nextPage website = do 
   S.scrapeStringLike website next >>= listToMaybe
-
     where 
       next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-next"]) link
@@ -61,6 +60,16 @@ lastPage website = do
       link :: S.Scraper ByteString ByteString
       link = do 
         S.attr "href" "a" 
+
+parseBillLinks :: ByteString -> Maybe [ByteString]
+parseBillLinks website = do
+  S.scrapeStringLike website bill
+    where
+      bill :: S.Scraper ByteString [ByteString]
+      bill = S.chroots ("article" S.@: [S.hasClass "node-bill"]) about
+
+      about :: S.Scraper ByteString ByteString
+      about = S.attr "about" "article" 
 
 recentBills :: IO String
 recentBills = do
