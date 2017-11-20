@@ -17,11 +17,11 @@ data Bill = Bill { billNumber :: String
                  , lastAction :: String --date? MM/DD/YYYY
                  , nextAction :: String --date? MM/DD/YYYY
                  , billSponsors :: [Legislature] 
-                 } deriving (Eq, Show)
+                 } deriving (Show, Eq)
 
-data Legislature = Legislature Name URL deriving (Eq, Show)
-newtype Name = Name String deriving (Eq, Show)
-newtype URL = URL String deriving (Eq, Show)
+data Legislature = Legislature Name URL deriving (Show, Eq)
+newtype Name = Name String deriving (Show, Eq)
+newtype URL = URL String deriving (Show, Eq)
 
 runScrape :: IO ()
 runScrape = do
@@ -33,15 +33,21 @@ runScrape = do
 
   putStrLn "Save the results."
 
+-- this will be the base page for any scrape we do
 scrape :: IO L8.ByteString 
 scrape = do 
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   return $ getResponseBody website
 
+-- this will be a test bill to use for now
+scrapeBill :: IO L8.ByteString
+scrapeBill = do
+  billSite <- httpLBS "http://leg.colorado.gov/bills/hb17-1001"
+  return $ getResponseBody billSite
+
 nextPage :: ByteString -> (Maybe ByteString) 
 nextPage website = do 
   S.scrapeStringLike website next >>= listToMaybe
-
     where 
       next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-next"]) link
@@ -53,7 +59,6 @@ nextPage website = do
 lastPage :: ByteString -> (Maybe ByteString)
 lastPage website = do 
   S.scrapeStringLike website next >>= listToMaybe
-
     where 
       next :: S.Scraper ByteString [ByteString]
       next = S.chroots ("li" S.@: [S.hasClass "pager-last"]) link
@@ -61,6 +66,16 @@ lastPage website = do
       link :: S.Scraper ByteString ByteString
       link = do 
         S.attr "href" "a" 
+
+parseBillLinks :: ByteString -> Maybe [ByteString]
+parseBillLinks website = do
+  S.scrapeStringLike website bill
+    where
+      bill :: S.Scraper ByteString [ByteString]
+      bill = S.chroots ("article" S.@: [S.hasClass "node-bill"]) about
+
+      about :: S.Scraper ByteString ByteString
+      about = S.attr "about" "article" 
 
 recentBills :: IO String
 recentBills = do
