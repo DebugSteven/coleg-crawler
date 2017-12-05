@@ -1,7 +1,7 @@
 module Scraper where
 
 import ClassyPrelude
-import Control.Monad.IO.Class (liftIO)
+import Control.Monad.IO.Class
 import qualified Data.Conduit.List as CL
 import Network.HTTP.Simple
 import qualified Data.ByteString.Lazy.Char8 as L8
@@ -76,6 +76,21 @@ parseBillLinks website = do
 
       about :: S.Scraper ByteString ByteString
       about = S.attr "about" "article" 
+
+parseBills :: ByteString -> Maybe [[ByteString]]
+parseBills website = do
+  S.scrapeStringLike website bill
+    where
+      bill :: S.Scraper ByteString [[ByteString]]
+      bill = S.chroots "article" info
+
+      info :: S.Scraper ByteString [ByteString]
+      info = do
+        billURL <- S.attr "about" "article"
+        billNum <- S.attr "field-item even" "div"
+        billTitle <- S.attr "node-title" "h1"
+        billDesc <- S.attr "field-item even" "div"
+        return [billURL, billNum, billTitle, billDesc]
 
 recentBills :: IO String
 recentBills = do
