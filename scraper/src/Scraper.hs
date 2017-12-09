@@ -87,9 +87,9 @@ parseBills website = do
       info :: S.Scraper ByteString [ByteString]
       info = do
         billURL <- S.attr "about" "article"
-        billNum <- S.attr "field-item even" "div"
-        billTitle <- S.attr "node-title" "h1"
-        billDesc <- S.attr "field-item even" "div"
+        billNum <- S.text $ "div" S.@: [S.hasClass "field-item", S.hasClass "even"]
+        billTitle <- S.text $ "h1" S.@: [S.hasClass "node-title"]
+        billDesc <- S.text $ "div" S.@: [S.hasClass "field-name-field-bill-long-title"]
         return [billURL, billNum, billTitle, billDesc]
 
 recentBills :: IO String
