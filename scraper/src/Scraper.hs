@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 module Scraper where
 
 import ClassyPrelude
@@ -5,6 +7,7 @@ import Control.Monad.IO.Class
 import qualified Data.Conduit.List as CL
 import Network.HTTP.Simple
 import qualified Data.ByteString.Lazy.Char8 as L8
+import qualified Data.ByteString.Char8 as BS8
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
@@ -33,11 +36,23 @@ runScrape = do
 
   putStrLn "Save the results."
 
+defaultScrape website = do
+  result <- nextPage website
+  if nextPage website /= lastPage website then (nextPage $ (++) "http://leg.colorado.gov" $ result) else return result
+
+-- if nextPage website == lastPage website then return parse done else
+-- nextPage bs 
+
 -- this will be the base page for any scrape we do
 scrape :: IO L8.ByteString 
 scrape = do 
   website <- httpLBS "http://leg.colorado.gov/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC" 
   return $ getResponseBody website
+
+scrapePage :: Request -> IO L8.ByteString
+scrapePage website = do
+  body <- httpLBS website
+  return $ getResponseBody body
 
 -- this will be a test bill to use for now
 scrapeBill :: IO L8.ByteString
