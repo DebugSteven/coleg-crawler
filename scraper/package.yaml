@@ -18,6 +18,7 @@ dependencies:
   - conduit
   - bytestring
   - scalpel
+  - string-conversions
 
 library:
   source-dirs:        src

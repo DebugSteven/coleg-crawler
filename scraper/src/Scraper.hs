@@ -8,10 +8,10 @@ import qualified Data.Conduit.List as CL
 import Network.HTTP.Simple
 import qualified Data.ByteString.Lazy.Char8 as L8
 import qualified Data.ByteString.Char8 as BS8
+import Data.String.Conversions
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
-import Data.Maybe
 
 data Bill = Bill { billNumber :: String
                  , billURL :: URL
@@ -36,12 +36,37 @@ runScrape = do
 
   putStrLn "Save the results."
 
-defaultScrape website = do
-  result <- nextPage website
-  if nextPage website /= lastPage website then (nextPage $ (++) "http://leg.colorado.gov" $ result) else return result
+-- parseRequest_ isn't a great function to use. I'll need to handle the
+-- parse errors it gives me or use defaultRequest + lenses in
+-- Network.HTTP.Simple
+scrapeSetup :: ByteString -> IO L8.ByteString
+scrapeSetup page = scrapePage $ parseRequest_ $ L8.unpack $ createLink $ unstrictLink page 
+  where 
+      createLink :: L8.ByteString -> L8.ByteString
+      createLink = (++) $ L8.pack "http://leg.colorado.gov"
 
--- if nextPage website == lastPage website then return parse done else
--- nextPage bs 
+      unstrictLink :: ByteString -> L8.ByteString
+      unstrictLink page = L8.fromStrict page 
+
+defaultScrape :: Maybe ByteString -> [Maybe ByteString] 
+defaultScrape page =
+  case page of
+    Nothing -> error "Something's gone wrong"
+    Just x -> do
+      resp <- (scrapeSetup x)
+      theIf page (L8.toStrict resp)
+
+theIf :: Maybe ByteString -> ByteString -> [Maybe ByteString]
+theIf page resp = 
+  if nextPage resp /= lastPage resp
+  then page : defaultScrape (nextPage resp)
+  else [page]  
+            --   resp <- scrapePage website 
+            --   if nextPage resp /= lastPage resp
+            --   then defaultScrape (nextPage resp) 
+
+basepage :: Maybe ByteString
+basepage = Just "/bill-search?field_sessions=10171&sort_bef_combine=field_bill_number%20ASC&page=0" 
 
 -- this will be the base page for any scrape we do
 scrape :: IO L8.ByteString 
