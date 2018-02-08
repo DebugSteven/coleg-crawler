@@ -19,6 +19,7 @@ dependencies:
   - bytestring
   - scalpel
   - string-conversions
+  - text
 
 library:
   source-dirs:        src

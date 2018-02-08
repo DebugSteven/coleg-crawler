@@ -9,6 +9,7 @@ import Network.HTTP.Simple
 import qualified Data.ByteString.Lazy.Char8 as L8
 import qualified Data.ByteString.Char8 as BS8
 import Data.String.Conversions
+import qualified Data.Text as T
 import System.IO (stdout, hSetBuffering, BufferMode( NoBuffering ), getLine )
 import qualified Text.HTML.Scalpel as S
 import Control.Applicative 
@@ -53,7 +54,7 @@ defaultScrape page =
   case page of
     Nothing -> error "Something's gone wrong"
     Just x -> do
-      resp <- (scrapeSetup x)
+      resp <- undefined -- (scrapeSetup x)
       theIf page (L8.toStrict resp)
 
 theIf :: Maybe ByteString -> ByteString -> [Maybe ByteString]
@@ -130,7 +131,7 @@ parseBills website = do
         billNum <- S.text $ "div" S.@: [S.hasClass "field-item", S.hasClass "even"]
         billTitle <- S.text $ "h1" S.@: [S.hasClass "node-title"]
         billDesc <- S.text $ "div" S.@: [S.hasClass "field-name-field-bill-long-title"]
-        return [billURL, billNum, billTitle, billDesc]
+        return [billURL, billNum, billTitle, (encodeUtf8 $ T.strip $ decodeUtf8 billDesc)]
 
 recentBills :: IO String
 recentBills = do
