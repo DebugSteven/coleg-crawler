@@ -20,6 +20,8 @@ dependencies:
   - scalpel
   - string-conversions
   - text
+  - webdriver
+  - monad-loops
 
 library:
   source-dirs:        src
