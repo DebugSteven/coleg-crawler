@@ -20,7 +20,7 @@ data Bill = Bill { billURL :: String
 newtype IndexPageURL = IndexPageURL String deriving (Show, Eq)
 newtype BillPageURL = BillPageURL Text deriving (Show, Eq)
 
-newScrape = do
+runScrape = do
   ws <- W.runSession (W.useBrowser (W.Chrome Nothing (Nothing) [] [] mempty) WC.defaultConfig) WS.getSession
   let run = W.runWD ws
   run $ do 
