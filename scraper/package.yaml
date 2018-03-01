@@ -6,7 +6,7 @@ homepage:            https://github.com/DebugSteven/coleg-scraper/scraper
 license:             BSD3
 author:              J Haigh
 maintainer:          DebugSteven@gmail.com
-copyright:           2017 J Haigh
+copyright:           2018 J Haigh
 category:            Web
 extra-source-files:
 - README.md
@@ -17,11 +17,9 @@ dependencies:
   - http-conduit
   - conduit
   - bytestring
-  - scalpel
   - string-conversions
   - text
   - webdriver
-  - monad-loops
 
 library:
   source-dirs:        src
