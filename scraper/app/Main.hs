@@ -1,8 +1,11 @@
 module Main where
 
 import Prelude
-import Scraper
+import NewScraper
 
 main :: IO ()
 main = do
-  runScrape
+  print "This may take awhile"
+  ourBills <- newScrape
+  print ourBills
+  return ()

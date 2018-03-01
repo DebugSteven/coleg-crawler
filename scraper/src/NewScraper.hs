@@ -21,13 +21,13 @@ newtype IndexPageURL = IndexPageURL String deriving (Show, Eq)
 newtype BillPageURL = BillPageURL Text deriving (Show, Eq)
 
 newScrape = do
-  -- we start with initial page with bill listings
   ws <- W.runSession (W.useBrowser (W.Chrome Nothing (Nothing) [] [] mempty) WC.defaultConfig) WS.getSession
   let run = W.runWD ws
   run $ do 
     scrapeLoop  
 
     where
+      -- we start with initial page with bill listings
       firstIndex :: IndexPageURL
       firstIndex = IndexPageURL "http://leg.colorado.gov/bill-search?field_sessions=10171&amp;sort_bef_combine=field_bill_number%20ASC&amp;page=31&page=0"
 
@@ -41,25 +41,26 @@ newScrape = do
         W.openPage indexPage
         currLink <- W.getCurrentURL
         lastLink <- getNextLink "pager-last"
-        nextLink <- getNextLink "pager-next"
-        if currLink == lastLink
-        then getBillLinks
-        else do
-          links <- getBillLinks 
-          rest <- (scrapeIndexPage (IndexPageURL nextLink))
-          return (mappend links rest)
+        case lastLink of
+          Nothing -> getBillLinks
+          Just l -> do
+            nextLink <- getNextLink "pager-next"
+            links <- getBillLinks 
+            rest <- (scrapeIndexPage (IndexPageURL l))
+            return (mappend links rest)
 
       scrapeBillPage :: BillPageURL -> W.WD Bill
       scrapeBillPage (BillPageURL billPage) = do
         W.openPage $ unpack billPage 
         getBillInfo
 
-      getNextLink :: Text -> W.WD String
+      getNextLink :: Text -> W.WD (Maybe String)
       getNextLink elemClass = do                    -- works for "pager-next" and "pager-last"
-        getLi <- W.findElem $ W.ByClass elemClass   -- gets the li element that should contain an a tag child
-        getA <- W.findElemFrom getLi $ W.ByTag "a"  -- gets the a child element from li
-        link <- W.attr getA "href"                  -- gets the link!
-        return $ unpack (fromMaybe "" link)
+        getLis <- W.findElems $ W.ByClass elemClass   -- gets the li element that should contain an a tag child
+        for (listToMaybe getLis) $ \getLi -> do
+          getA <- W.findElemFrom getLi $ W.ByTag "a"  -- gets the a child element from li
+          link <- W.attr getA "href"                  -- gets the link!
+          return $ unpack (fromMaybe "" link)
 
       getBillLinks :: W.WD [BillPageURL] 
       getBillLinks = do
