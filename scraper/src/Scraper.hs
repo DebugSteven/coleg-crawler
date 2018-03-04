@@ -2,20 +2,12 @@
 
 module Scraper where
 
+import Bill
 import ClassyPrelude
 import qualified Test.WebDriver as W
 import qualified Test.WebDriver.Config as WC
 import qualified Test.WebDriver.Session as WS
 import Data.Text (Text)
-
-data Bill = Bill { billURL :: String
-                 , billNumber :: Text 
-                 , billTitle :: Text
-                 , billDescription :: Text
-                 , lastAction :: Maybe Text 
-                 , nextAction :: Maybe Text 
-                 , billSponsors :: Text 
-                 } deriving (Show, Eq)
 
 newtype IndexPageURL = IndexPageURL String deriving (Show, Eq)
 newtype BillPageURL = BillPageURL Text deriving (Show, Eq)
@@ -45,8 +37,9 @@ runScrape = do
           Nothing -> getBillLinks
           Just l -> do
             nextLink <- getNextLink "pager-next"
+            let n = fromMaybe "" nextLink
             links <- getBillLinks 
-            rest <- (scrapeIndexPage (IndexPageURL l))
+            rest <- (scrapeIndexPage (IndexPageURL n))
             return (mappend links rest)
 
       scrapeBillPage :: BillPageURL -> W.WD Bill
