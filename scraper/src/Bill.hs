@@ -40,6 +40,6 @@ instance ToNamedRecord Bill where
                      , "fnextAction" .= nextAction
                      , "dbillSponsors" .= billSponsors
                      ]
-writeCSV :: [Bill] -> IO ()
-writeCSV = writeCSVFile defCSVSettings "/Users/jhaigh/Desktop/coleg-crawler/bills.csv" WriteMode . fmap Named
 
+writeCSV :: [Bill] -> IO ()
+writeCSV = writeCSVFile defCSVSettings "bills.csv" WriteMode . fmap Named

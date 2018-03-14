@@ -3,7 +3,7 @@ version:             0.1.0.0
 #synopsis:
 #description:
 homepage:            https://github.com/DebugSteven/coleg-scraper/scraper
-license:             BSD3
+license:             Apache
 author:              J Haigh
 maintainer:          DebugSteven@gmail.com
 copyright:           2018 J Haigh
