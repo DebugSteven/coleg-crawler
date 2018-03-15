@@ -27,7 +27,8 @@ runScrape = do
       scrapeLoop :: W.WD [Bill]
       scrapeLoop = do
         billList <- scrapeIndexPage firstIndex
-        traverse scrapeBillPage billList 
+        -- traverse scrapeBillPage (take 1 billList)
+        traverse scrapeBillPage billList
 
       scrapeIndexPage :: IndexPageURL -> W.WD [BillPageURL]
       scrapeIndexPage (IndexPageURL indexPage) = do
@@ -42,6 +43,7 @@ runScrape = do
             links <- getBillLinks 
             rest <- (scrapeIndexPage (IndexPageURL n))
             return (mappend links rest)
+            -- return links
 
       scrapeBillPage :: BillPageURL -> W.WD Bill
       scrapeBillPage (BillPageURL billPage) = do

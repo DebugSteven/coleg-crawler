@@ -1,8 +1,8 @@
-name:                scraper
+name:                audax
 version:             0.1.0.0
 #synopsis:
 #description:
-homepage:            https://github.com/DebugSteven/coleg-scraper/scraper
+homepage:            https://github.com/DebugSteven/coleg-scraper/audax
 license:             Apache
 author:              J Haigh
 maintainer:          DebugSteven@gmail.com
@@ -30,10 +30,10 @@ library:
     - OverloadedStrings
 
 executables:
-  scraper:
+  audax:
     source-dirs:      app
     main:             Main.hs
-    dependencies:     scraper
+    dependencies:     audax
 
 tests:
   test:
@@ -45,7 +45,7 @@ tests:
       - -with-rtsopts=-N
     dependencies:
       - base
-      - scraper
+      - audax
       - QuickCheck
       - hspec
       - string-conversions
