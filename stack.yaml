@@ -1,9 +1,13 @@
-resolver: lts-9.12
+resolver: lts-11.0
 
 packages:
 - audax
+- pholcidae
 - spatula
-- common
+- location:
+    git: https://github.com/bitemyapp/esqueleto
+    commit: 297f0238419963a386353c75e6fc555a43994ad1
+  extra-dep: true
 
 extra-deps: []
 

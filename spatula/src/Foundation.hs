@@ -9,18 +9,18 @@
 {-# LANGUAGE ExplicitForAll #-}
 {-# LANGUAGE RankNTypes #-}
 
+
 module Foundation
   ( module Foundation
   , module X
   ) where
 
 import Import.NoFoundation
-import Database.Persist.Sql (ConnectionPool, runSqlPool)
+import Database.Persist.Sql (runSqlPool)
 import Text.Hamlet          (hamletFile)
 import Text.Jasmine         (minifym)
 
 import Yesod.Default.Util   (addStaticContentExternal)
-import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
@@ -132,21 +132,10 @@ instance Yesod App where
         -- Generate a unique filename based on the content itself
         genFileName lbs = "autogen-" ++ base64md5 lbs
 
-    -- What messages should be logged. The following includes all messages when
-    -- in development, and warnings and errors in production.
-    shouldLog app _source level =
-        appShouldLogAll (appSettings app)
-            || level == LevelWarn
-            || level == LevelError
-
     makeLogger = return . appLogger
 
 -- | A convenient synonym for creating forms.
-type Form x = Html -> MForm (HandlerT App IO) (FormResult x, Widget)
-
--- | A convenient synonym for database access functions.
-type DB a = forall (m :: * -> *).
-    (MonadIO m, Functor m) => ReaderT SqlBackend m a
+type Form x = Html -> MForm (HandlerFor App) (FormResult x, Widget)
 
 -- Define breadcrumbs.
 instance YesodBreadcrumbs App where
