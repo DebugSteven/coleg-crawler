@@ -1,0 +1,51 @@
+name:                audax
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/DebugSteven/coleg-scraper/audax
+license:             Apache
+author:              J Haigh
+maintainer:          DebugSteven@gmail.com
+copyright:           2018 J Haigh
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - classy-prelude
+  - http-conduit
+  - conduit
+  - conduit-extra
+  - csv-conduit
+  - bytestring
+  - string-conversions
+  - text
+  - webdriver
+
+library:
+  source-dirs:        src
+  default-extensions:
+    - NoImplicitPrelude
+    - OverloadedStrings
+
+executables:
+  audax:
+    source-dirs:      app
+    main:             Main.hs
+    dependencies:     audax
+
+tests:
+  test:
+    source-dirs:      test
+    main:             Spec.hs
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - base
+      - audax
+      - QuickCheck
+      - hspec
+      - string-conversions

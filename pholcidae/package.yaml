@@ -1,0 +1,76 @@
+name:                pholcidae
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/DebugSteven/coleg-scraper/pholcidae
+license:             BSD3
+author:              J Haigh
+maintainer:          DebugSteven@gmail.com
+copyright:           2018 J Haigh
+category:            Web
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - blaze-markup
+  - classy-prelude
+  - esqueleto
+  - monad-logger
+  - network-uri
+  - persistent
+  - persistent-postgresql
+  - persistent-template
+  - shakespeare
+
+default-extensions:
+  - BangPatterns
+  - ConstraintKinds
+  - DataKinds
+  - EmptyDataDecls
+  - FlexibleContexts
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - MultiParamTypeClasses
+  - NoImplicitPrelude
+  - NoMonomorphismRestriction
+  - OverloadedStrings
+  - QuasiQuotes
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - TemplateHaskell
+  - TupleSections
+  - TypeFamilies
+  - TypeOperators
+  - ViewPatterns
+
+library:
+  source-dirs:        src
+  default-extensions:
+    - NoImplicitPrelude
+    - OverloadedStrings
+
+executables:
+  migration:
+    main: Main.hs
+    source-dirs:
+      - app/migration
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+    dependencies:
+      - pholcidae
+  fixtures:
+    main: Main.hs
+    source-dirs:
+      - app/fixtures
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+    dependencies:
+      - pholcidae
+  truncate:
+    main: Main.hs
+    source-dirs:
+      - app/truncate
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+    dependencies:
+      - pholcidae
