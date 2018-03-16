@@ -1,8 +1,8 @@
 module Main where
 
 import Prelude (IO)
-import Model (runDevDB)
-import Model.Fixtures (truncateAllTables)
+import Pholcidae.Model (runDevDB)
+import Pholcidae.Model.Fixtures (truncateAllTables)
 
 main :: IO ()
 main =

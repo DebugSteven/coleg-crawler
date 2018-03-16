@@ -1,4 +1,4 @@
-module Model.Types where
+module Pholcidae.Model.Types where
 
 import           ClassyPrelude
 import           Database.Esqueleto.Internal.Sql
@@ -24,16 +24,23 @@ fetchThingByField
 fetchThingByField field u =
   selectFirst [field ==. u] []
 
-newtype Address1 =
-  Address1 { unAddress1 :: Text }
+newtype CodeNumber =
+  CodeNumber { unCodeNumber :: Text }
   deriving (Eq, Show, PersistField, PersistFieldSql)
 
-instance ToMarkup Address1 where
-  toMarkup = string . unpack . unAddress1
+instance ToMarkup CodeNumber where
+  toMarkup = string . unpack . unCodeNumber
 
-newtype Address2 =
-  Address2 { unAddress2 :: Text }
+newtype CodeTitle =
+  CodeTitle { unCodeTitle :: Text }
   deriving (Eq, Show, PersistField, PersistFieldSql)
 
-instance ToMarkup Address2 where
-  toMarkup = string . unpack . unAddress2
+instance ToMarkup CodeTitle where
+  toMarkup = string . unpack . unCodeTitle
+
+newtype Description =
+  Description { unDescription :: Text }
+  deriving (Eq, Show, PersistField, PersistFieldSql)
+
+instance ToMarkup Description where
+  toMarkup = string . unpack . unDescription

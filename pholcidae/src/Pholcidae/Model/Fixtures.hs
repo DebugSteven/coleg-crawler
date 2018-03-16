@@ -1,4 +1,4 @@
-module Model.Fixtures where
+module Pholcidae.Model.Fixtures where
 
 import ClassyPrelude
 import Data.Fixed
@@ -6,7 +6,7 @@ import Database.Persist.Sql
 import Prelude ((!!))
 import Text.Shakespeare.Text (st)
 
-import Model
+import Pholcidae.Model
 
 data BillFixtures =
   BillFixtures { allBillsF :: ![Entity Bill] }

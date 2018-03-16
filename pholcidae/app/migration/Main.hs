@@ -2,7 +2,7 @@ module Main where
 
 import Prelude
 
-import Model
+import Pholcidae.Model
 
 main :: IO ()
 main = do

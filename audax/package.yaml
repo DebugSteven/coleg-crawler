@@ -13,21 +13,29 @@ extra-source-files:
 
 dependencies:
   - base >= 4.7 && < 5
+  - bytestring
   - classy-prelude
-  - http-conduit
   - conduit
   - conduit-extra
   - csv-conduit
-  - bytestring
+  - http-conduit
+  - parsers
+  - pholcidae
+  - shakespeare
   - string-conversions
   - text
+  - time
+  - trifecta
   - webdriver
+
+default-extensions:
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - QuasiQuotes
+  - RecordWildCards
 
 library:
   source-dirs:        src
-  default-extensions:
-    - NoImplicitPrelude
-    - OverloadedStrings
 
 executables:
   audax:

@@ -1,8 +1,8 @@
 {-# LANGUAGE FlexibleInstances #-}
 
-module Model
+module Pholcidae.Model
   ( module Export
-  , module Model
+  , module Pholcidae.Model
   ) where
 
 import ClassyPrelude
@@ -13,16 +13,16 @@ import Database.Persist.Sql
 import Database.Persist.TH
 -- import Network.URI
 
-import Model.Types as Export
+import Pholcidae.Model.Types as Export
 
 share [ mkPersist sqlSettings
       , mkMigrate "migrateAll"
       ] [persistLowerCase|
 Bill sql=bills
   url Text
-  number Text
-  title Text
-  description Text
+  number CodeNumber
+  title CodeTitle
+  description Description
   created UTCTime
   modified UTCTime
   UniqueBillNumber number
@@ -63,6 +63,16 @@ BillAction sql=bill_actions
 type BillF = UTCTime -> UTCTime -> Bill
 type BillActionF = BillId -> UTCTime -> BillAction
 type LegislatorF = UTCTime -> Legislator
+
+-- data BillOmnibus =
+--   BillOmnibus {
+--     _omnibusBill :: !(Entity Bill)
+--   , _omnibusBillActions :: ![Entity BillAction]
+--   , _omnibusLegislators :: ![( Entity Legislator
+--                              , Entity BillSponsor )]
+--   } deriving Show
+
+-- instance ToNamedData ...
 
 -- This needs upsert/dedup semantics for all of the models
 insertBill :: [LegislatorF]

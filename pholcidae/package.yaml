@@ -48,9 +48,10 @@ default-extensions:
 
 library:
   source-dirs:        src
-  default-extensions:
-    - NoImplicitPrelude
-    - OverloadedStrings
+  exposed-modules:
+    - Pholcidae.Model
+    - Pholcidae.Model.Fixtures
+    - Pholcidae.Model.Types
 
 executables:
   migration:
