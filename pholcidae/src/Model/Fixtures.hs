@@ -8,19 +8,37 @@ import Text.Shakespeare.Text (st)
 
 import Model
 
-data UserFixtures =
-  UserFixtures { allUsersF :: ![Entity User] }
+data BillFixtures =
+  BillFixtures { allBillsF :: ![Entity Bill] }
+  deriving (Show)
+
+data LegislatorFixtures =
+  LegislatorFixtures { allLegislatorsF :: ![Entity Legislator] }
+  deriving (Show)
+
+data BillSponsorFixtures =
+  BillSponsorFixtures { allBillSponsorsF :: ![Entity BillSponsor] }
+  deriving (Show)
+
+data BillActionFixtures =
+  BillActionFixtures { allBillActionsF :: ![Entity BillAction] }
   deriving (Show)
 
 data Fixtures =
-  Fixtures { userF :: !UserFixtures
+  Fixtures { billF :: !BillFixtures
+           , legislatorF :: !LegislatorFixtures
+           , billSponsorF :: !BillSponsorFixtures
+           , billActionF :: !BillActionFixtures
            }
   deriving Show
 
 insertFixtures :: DB Fixtures
 insertFixtures = do
-  let allUsersF = undefined
-  let userF = UserFixtures {..}
+  let allBillsF = undefined
+  let billF = BillFixtures {..}
+      legislatorF = undefined
+      billSponsorF = undefined
+      billActionF = undefined
   return Fixtures {..}
 
 getTables :: DB [Text]

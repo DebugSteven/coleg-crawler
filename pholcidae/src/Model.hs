@@ -11,7 +11,7 @@ import Control.Monad.Logger hiding (LoggingT, runLoggingT)
 import Database.Persist.Postgresql
 import Database.Persist.Sql
 import Database.Persist.TH
-import Network.URI
+-- import Network.URI
 
 import Model.Types as Export
 
@@ -19,31 +19,98 @@ share [ mkPersist sqlSettings
       , mkMigrate "migrateAll"
       ] [persistLowerCase|
 Bill sql=bills
-  url URI
+  url Text
   number Text
   title Text
   description Text
-  lastAction Text Maybe
-  nextAction Text Maybe
-  sponsors Text
   created UTCTime
   modified UTCTime
+  UniqueBillNumber number
+  UniqueBillUrl url
+  deriving Show
 
-Sponsor sql=sponsors
-  bill BillId
-  title Text -- Senator, Representative
+Legislator sql=legislators
   name Text -- Tony Exum
+  url Text
   created UTCTime
-  modified UTCTime
+  UniqueLegislatorName name
+  deriving Show
+
+LegislatorTenure sql=legislator_tenures
+  title Text -- Senator, Representative
+  started Day
+  stopped Day Maybe
+  legislator LegislatorId
+  created UTCTime
+
+BillSponsor sql=bill_sponsors
+  sponsor LegislatorId
+  bill BillId
+  created UTCTime
+  UniqueBillSponsor sponsor bill
+  deriving Show
 
 BillAction sql=bill_actions
-  bill BillId
   date Day
   location Text
   action Text
+  bill BillId
   created UTCTime
-  modified UTCTime
+  UniqueBillAction date location action bill
+  deriving Show
 |]
+
+type BillF = UTCTime -> UTCTime -> Bill
+type BillActionF = BillId -> UTCTime -> BillAction
+type LegislatorF = UTCTime -> Legislator
+
+-- This needs upsert/dedup semantics for all of the models
+insertBill :: [LegislatorF]
+           -> [BillActionF]
+           -> BillF
+           -> DB ( Entity Bill
+                 , [ Entity BillAction ]
+                 , [ ( Entity Legislator
+                     , Entity BillSponsor
+                     )
+                   ]
+                 )
+insertBill sponsors billActions bill = do
+  t <- liftIO getCurrentTime
+  billEntity@(Entity billKey _) <- insertEntity (bill t t)
+  billActions <- traverse (insertBillAction billKey t) billActions
+  legislators <- traverse (insertLegislator t billKey) sponsors
+  return (billEntity, billActions, legislators)
+  where
+    insertBillAction :: BillId
+                     -> UTCTime
+                     -> BillActionF
+                     -> DB (Entity BillAction)
+    insertBillAction billKey t billActionF =
+      insertEntity (billActionF billKey t)
+
+    insertLegislator :: UTCTime
+                     -> BillId
+                     -> LegislatorF
+                     -> DB (Entity Legislator, Entity BillSponsor)
+    insertLegislator t billKey legislatorF = do
+      legEnt <- insertEntity (legislatorF t)          
+      bsEnt <- insertBillSponsor t billKey (entityKey legEnt)
+      return (legEnt, bsEnt)
+
+    insertBillSponsor :: UTCTime
+                      -> BillId
+                      -> LegislatorId
+                      -> DB (Entity BillSponsor)
+    insertBillSponsor t billKey legKey = do
+      insertEntity (BillSponsor legKey billKey t)
+
+  -- startedService Day
+  -- endedService Day
+
+  -- lastAction Text Maybe
+  -- nextAction Text Maybe
+  -- sponsors Text
 
 -- data Bill = Bill { billURL :: Text
 --                , billNumber :: Text 

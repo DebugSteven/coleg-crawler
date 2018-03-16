@@ -41,7 +41,7 @@ runScrape = do
             nextLink <- getNextLink "pager-next"
             let n = fromMaybe "" nextLink
             links <- getBillLinks 
-            rest <- (scrapeIndexPage (IndexPageURL n))
+            rest <- scrapeIndexPage (IndexPageURL n)
             return (mappend links rest)
             -- return links
 
