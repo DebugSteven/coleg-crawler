@@ -38,6 +38,13 @@ newtype CodeTitle =
 instance ToMarkup CodeTitle where
   toMarkup = string . unpack . unCodeTitle
 
+newtype Committee = 
+  Committee { unCommittee :: Text }
+  deriving (Eq, Show, PersistField, PersistFieldSql)
+
+instance ToMarkup Committee where
+  toMarkup = string . unpack . unCommittee
+
 newtype Description =
   Description { unDescription :: Text }
   deriving (Eq, Show, PersistField, PersistFieldSql)

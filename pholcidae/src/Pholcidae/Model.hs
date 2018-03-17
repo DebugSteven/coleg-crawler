@@ -22,6 +22,7 @@ Bill sql=bills
   url Text
   number CodeNumber
   title CodeTitle
+  committee Committee
   description Description
   created UTCTime
   modified UTCTime

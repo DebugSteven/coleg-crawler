@@ -143,16 +143,34 @@ runScrape = do
         url <- W.getCurrentURL
         number <- W.getText =<< W.findElem (W.ByCSS ".field-name-field-bill-number") 
         title <- W.getText =<< W.findElem (W.ByClass "node-title")
+        committee <- W.getText =<< W.findElem (W.ByCSS "div.field-name-field-subjects")
         desc <- W.getText =<< W.findElem (W.ByCSS ".field-name-field-bill-long-title")
         sponsors <- W.getText =<< W.findElem (W.ByCSS "#block-cga-bills-bill-sponsors")
-        upcomingActions <- W.findElems (W.ByCSS ".node-schedule-item:first-child")
-        upcomingAction <- traverse W.getText (listToMaybe upcomingActions)
-        previousActions <- W.findElems (W.ByCSS "[data-long-bill-sort]:first-child")
-        previousAction <- traverse W.getText (listToMaybe previousActions)
+        --upcomingActions <- W.findElems (W.ByCSS ".node-schedule-item:first-child")
+        -- this gets the month & day
+        upcomingActionsDay <- W.findElems (W.ByCSS "div.calendar-icon")
+        upcomingActionDay <- traverse W.getText (listToMaybe upcomingActionsDay) 
 
+        -- this gets the room number & time
+        upcomingActionsLoc <- W.findElems (W.ByCSS "div.event-meta.schedule-item-meta")
+        upcomingActionLoc <- traverse W.getText (listToMaybe upcomingActionsLoc)
+
+        -- smash that information together & hope it isn't Nothing
+        -- " " isn't very informative if it's Nothing
+        let upcomingAction = upcomingActionDay <> Just " " <> upcomingActionLoc
+
+        --previousActions <- W.findElems (W.ByCSS "[data-long-bill-sort]:first-child")
+        --previousAction <- traverse W.getText (listToMaybe previousActions)
+        -- go to the bill history tab, grab all the elements from the
+        -- table, & grab the first one
+        W.click =<< W.findElem (W.ByCSS "#bill-documents-tabs7-label")
+        previousActionTable <- W.findElems (W.ByCSS "div#bill-documents-tabs7 tbody")
+        previousActionList <- traverse W.getText previousActionTable
+        let previousAction = headMay (lines $ mconcat previousActionList) 
         let _scrapedBill = Bill (pack url)
                                 (CodeNumber number)
                                 (CodeTitle title)
+                                (Committee committee)
                                 (Description desc)
             noScrapeBillActionDate =
               ModifiedJulianDay 0
