@@ -48,10 +48,6 @@ default-extensions:
 
 library:
   source-dirs:        src
-  exposed-modules:
-    - Pholcidae.Model
-    - Pholcidae.Model.Fixtures
-    - Pholcidae.Model.Types
 
 executables:
   migration:
