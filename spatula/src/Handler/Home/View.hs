@@ -35,27 +35,27 @@ williamsView williamses =
     [whamlet|
 <div .container>
   <div .row>
-      <h1 .header>Bills
-      <table .human-table>
+    <h1 .header>Bills
+    <table .human-table>
+      <tr>
+        <th>Url
+        <th>Number
+        <th>Title
+        <th>Committee
+        <th>Description
+        <th>Created
+      $forall (Entity _ Bill{..}) <- williamses
         <tr>
-          <th>Url
-          <th>Number
-          <th>Title
-          <th>Committee
-          <th>Description
-          <th>Created
-        $forall (Entity _ Bill{..}) <- williamses
-          <tr>
-            <td>
-              <a href="#{billUrl}">#{billUrl}</a>
-            <td>
-              #{billNumber}
-            <td>
-              #{billTitle}
-            <td>
-              #{billCommittee}
-            <td>
-              #{billDescription}
-            <td>
-              #{tshow billCreated}
+          <td>
+            <a href="#{billUrl}">#{billUrl}</a>
+          <td>
+            #{billNumber}
+          <td>
+            #{billTitle}
+          <td>
+            #{billCommittee}
+          <td>
+            #{billDescription}
+          <td>
+            #{tshow billCreated}
 |]
