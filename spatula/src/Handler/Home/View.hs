@@ -20,3 +20,35 @@ homeView =
             <a href="/static/csv/2018-03-14-bills.csv" .btn.btn-info.btn-lg>
                 Download the legislative CSV dump
     |]
+
+williamsView :: [Entity Bill] -> Handler Html
+williamsView williamses =
+  defaultLayout $ do
+    setTitle "Welcome to coleg-crawler's website!"
+    [whamlet|
+<div .container>
+  <div .row>
+      <h1 .header>Bills
+      <table>
+        <tr>
+          <th>Url
+          <th>Number
+          <th>Title
+          <th>Committee
+          <th>Description
+          <th>Created
+        $forall (Entity _ Bill{..}) <- williamses
+          <tr>
+            <td>
+              <a href="#{billUrl}">#{billUrl}</a>
+            <td>
+              #{billNumber}
+            <td>
+              #{billTitle}
+            <td>
+              #{billCommittee}
+            <td>
+              #{billDescription}
+            <td>
+              #{tshow billCreated}
+|]

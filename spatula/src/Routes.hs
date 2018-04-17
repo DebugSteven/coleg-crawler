@@ -13,4 +13,5 @@ mkYesodData "App" [parseRoutes|
 /robots.txt RobotsR GET
 
 / HomeR GET
+/bills WilliamsR GET
 |]
