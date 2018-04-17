@@ -13,7 +13,7 @@ install:
 	$(stack) install
 
 ghci:
-	$(stack) ghci $(package):lib
+	$(stack) ghci $(package):lib --no-load
 
 test:
 	$(stack) test $(package)
