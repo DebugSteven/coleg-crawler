@@ -100,7 +100,8 @@ instance Yesod App where
         -- you to use normal widget features in default-xlayout.
 
         pc <- widgetToPageContent $ do
-            addStylesheet $ StaticR css_bootstrap_css
+            addStylesheet $ StaticR css_bootstrap_4_1_min_css
+            addStylesheet $ StaticR css_main_css
             $(widgetFile "default-layout")
         withUrlRenderer $(hamletFile "templates/default-layout-wrapper.hamlet")
 
@@ -108,10 +109,7 @@ instance Yesod App where
     authRoute _ = Nothing
 
     -- Routes not requiring authentication.
-    isAuthorized HomeR _ = return Authorized
-    isAuthorized FaviconR _ = return Authorized
-    isAuthorized RobotsR _ = return Authorized
-    isAuthorized (StaticR _) _ = return Authorized
+    isAuthorized _ _ = return Authorized
 
     -- This function creates static content files in the static folder
     -- and names them based on a hash of their content. This allows

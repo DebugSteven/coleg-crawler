@@ -7,4 +7,3 @@ import Pholcidae.Model
 main :: IO ()
 main = do
   runDevDB runMigrations
-
