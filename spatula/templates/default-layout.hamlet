@@ -21,19 +21,24 @@
 <!--                         <a href="@{route}">#{label} -->
 
 <!-- Page Contents -->
-
-<div .container>
-    $if not $ Just HomeR == mcurrentRoute
-        <ul .breadcrumb>
-            $forall bc <- parents
-                <li>
-                    <a href="@{fst bc}">#{snd bc}
-
-            <li .active>#{title}
-
-    $maybe msg <- mmsg
-      <div .alert.alert-info #message>#{msg}
-
+<nav .navbar .navbar-expand-lg .navbar-light .bg-light>
+  <a .navbar-brand href="/">
+    Spatula
+  <button.navbar-toggler
+   aria-controls="navbarSupportedContent"
+   aria-expanded="false"
+   aria-label="Toggle navigation"
+   data-target="#navbarSupportedContent"
+   data-toggle="collapse" type="button">
+    <span .navbar-toggler-icon>
+  <div .collapse .navbar-collapse #navbarSupportedContent>
+    <ul .navbar-nav .mr-auto>
+      <li .nav-item>
+        <a .nav-link href="/">
+          Home
+      <li .nav-item>
+        <a .nav-link href="/bills">
+          Bills
 
 $if (Just HomeR == mcurrentRoute)
     ^{widget}

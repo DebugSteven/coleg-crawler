@@ -12,14 +12,21 @@ homeView =
   defaultLayout $ do
     setTitle "Welcome to coleg-crawler's website!"
     [whamlet|
-<div .masthead>
-    <div .container>
-        <div .row>
-            <h1 .header>
-                coleg-crawler — an unofficial and community supported source of raw CSV data for the Colorado legislature
-            <a href="/static/csv/2018-03-14-bills.csv" .btn.btn-info.btn-lg>
-                Download the legislative CSV dump
-    |]
+<div .container>
+  <div .row>
+    <div .jumbotron>
+      <h1 .display-4>
+        coleg-crawler
+      <p .lead>
+        An unofficial and community supported source of raw CSV data for the Colorado legislature
+      <hr .my-4>
+      <p>
+        It uses utility classes for typography and spacing to space content out within the larger container.
+      <a.btn.btn-primary.btn-lg
+        href="/static/csv/2018-03-14-bills.csv"
+        role="button">
+        Download the legislative CSV dump                
+|]
 
 williamsView :: [Entity Bill] -> Handler Html
 williamsView williamses =
@@ -29,7 +36,7 @@ williamsView williamses =
 <div .container>
   <div .row>
       <h1 .header>Bills
-      <table>
+      <table .human-table>
         <tr>
           <th>Url
           <th>Number
